@@ -6,7 +6,7 @@ namespace Tarneeb_Game_group3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Tarneeb ");
+            Console.WriteLine("123");
         }
     }
 }
