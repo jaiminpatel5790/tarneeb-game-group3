@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarneeb-Game-group3", "Tarn
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cards", "Cards", "{404DC449-F0A6-4EC9-9932-AFE180C5B021}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardsSolution", "..\CardsSolution\CardsSolution.csproj", "{FC7EB49F-A30B-4DF8-9A96-DEDC79EB7A69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,9 +19,16 @@ Global
 		{3C57B96E-1B16-4384-8F67-9863E6866B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C57B96E-1B16-4384-8F67-9863E6866B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C57B96E-1B16-4384-8F67-9863E6866B49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC7EB49F-A30B-4DF8-9A96-DEDC79EB7A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC7EB49F-A30B-4DF8-9A96-DEDC79EB7A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC7EB49F-A30B-4DF8-9A96-DEDC79EB7A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC7EB49F-A30B-4DF8-9A96-DEDC79EB7A69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FC7EB49F-A30B-4DF8-9A96-DEDC79EB7A69} = {404DC449-F0A6-4EC9-9932-AFE180C5B021}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4757353B-0382-4FD7-82F9-C01EE5EA30A6}
