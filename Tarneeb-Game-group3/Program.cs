@@ -12,9 +12,9 @@ namespace Tarneeb_Game_group3
 
             deck.Shuffle();
             List<Card> pass1 = deck.Sort(deck.TakeCards(13));
-            List<Card> pass2 = deck.TakeCards(13);
-            List<Card> pass3 = deck.TakeCards(13);
-            List<Card> pass4 = deck.TakeCards(13);
+            List<Card> pass2 = deck.Sort(deck.TakeCards(13));
+            List<Card> pass3 = deck.Sort(deck.TakeCards(13));
+            List<Card> pass4 = deck.Sort(deck.TakeCards(13));
 
 
             Console.WriteLine("Player 1 Cards:");
@@ -32,6 +32,9 @@ namespace Tarneeb_Game_group3
             Console.WriteLine("Player 4 Cards:");
             Player player4 = new Player("Some Doe", pass4);
             player4.playersCards.ForEach(Console.WriteLine);
+
+            Team FirstTeam = new Team(player1, player2);
+            Team SecondTeam = new Team(player3, player4);
 
         }
     }
