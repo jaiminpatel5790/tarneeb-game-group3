@@ -2,7 +2,7 @@
 
 namespace Cards
 {
-    class Program
+    class Cards
     {
         static void Main(string[] args)
         {
