@@ -8,7 +8,7 @@ namespace Tarneeb_Game_group3
         {
             Console.WriteLine("123");
             Console.WriteLine("He is busy ");   
-            Console.WriteLine("Kaif is busy");
+            Console.WriteLine("Kaif is busy kaif ");
         }
     }
 }
