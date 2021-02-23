@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Tarneeb-Game-group3/1.0.0": {
+        "dependencies": {
+          "Cards": "1.0.0"
+        },
+        "runtime": {
+          "Tarneeb-Game-group3.dll": {}
+        }
+      },
+      "Cards/1.0.0": {
+        "runtime": {
+          "Cards.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Tarneeb-Game-group3/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Cards/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

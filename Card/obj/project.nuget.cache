@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hOnNt4RNiqUL21p4fEADUxjjNKv5JXU6gg4YIqGTr6d0kkcD3ebZx9GznEt0tG2ZF5lc6RJHoDpTO4Fskq88lg==",
+  "success": true,
+  "projectFilePath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
