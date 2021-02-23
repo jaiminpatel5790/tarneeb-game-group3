@@ -7,3 +7,12 @@ E:\Computer Programming Semester- 04\OOP-III-4200\Final-Project\Card\obj\Debug\n
 E:\Computer Programming Semester- 04\OOP-III-4200\Final-Project\Card\obj\Debug\netstandard2.0\Cards.csproj.CoreCompileInputs.cache
 E:\Computer Programming Semester- 04\OOP-III-4200\Final-Project\Card\obj\Debug\netstandard2.0\Cards.dll
 E:\Computer Programming Semester- 04\OOP-III-4200\Final-Project\Card\obj\Debug\netstandard2.0\Cards.pdb
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\bin\Debug\netstandard2.0\Cards.deps.json
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\bin\Debug\netstandard2.0\Cards.dll
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\bin\Debug\netstandard2.0\Cards.pdb
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\obj\Debug\netstandard2.0\Cards.csprojAssemblyReference.cache
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\obj\Debug\netstandard2.0\Cards.AssemblyInfoInputs.cache
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\obj\Debug\netstandard2.0\Cards.AssemblyInfo.cs
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\obj\Debug\netstandard2.0\Cards.csproj.CoreCompileInputs.cache
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\obj\Debug\netstandard2.0\Cards.dll
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Card\obj\Debug\netstandard2.0\Cards.pdb

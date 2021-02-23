@@ -14,3 +14,19 @@ E:\Computer Programming Semester- 04\OOP-III-4200\Final-Project\Tarneeb-Game-gro
 E:\Computer Programming Semester- 04\OOP-III-4200\Final-Project\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.dll
 E:\Computer Programming Semester- 04\OOP-III-4200\Final-Project\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.pdb
 E:\Computer Programming Semester- 04\OOP-III-4200\Final-Project\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.genruntimeconfig.cache
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\bin\Debug\netcoreapp3.1\Tarneeb-Game-group3.exe
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\bin\Debug\netcoreapp3.1\Tarneeb-Game-group3.deps.json
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\bin\Debug\netcoreapp3.1\Tarneeb-Game-group3.runtimeconfig.json
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\bin\Debug\netcoreapp3.1\Tarneeb-Game-group3.runtimeconfig.dev.json
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\bin\Debug\netcoreapp3.1\Tarneeb-Game-group3.dll
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\bin\Debug\netcoreapp3.1\Tarneeb-Game-group3.pdb
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\bin\Debug\netcoreapp3.1\Cards.dll
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\bin\Debug\netcoreapp3.1\Cards.pdb
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.csprojAssemblyReference.cache
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.AssemblyInfoInputs.cache
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.AssemblyInfo.cs
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.csproj.CoreCompileInputs.cache
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.csproj.CopyComplete
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.dll
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.pdb
+D:\Semester 4\OOP4200\Final Project\tarneeb-game-group3\Tarneeb-Game-group3\obj\Debug\netcoreapp3.1\Tarneeb-Game-group3.genruntimeconfig.cache
