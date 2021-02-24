@@ -1,34 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj": {}
+    "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj": {}
   },
   "projects": {
-    "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj": {
+    "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj",
+        "projectUniqueName": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj",
         "projectName": "Cards",
-        "projectPath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj",
-        "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
-        "outputPath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\obj\\",
+        "projectPath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj",
+        "packagesPath": "C:\\Users\\kaifv\\.nuget\\packages\\",
+        "outputPath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages",
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kaifv\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\MicroFocus.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -68,39 +69,40 @@
         }
       }
     },
-    "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj": {
+    "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj",
+        "projectUniqueName": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj",
         "projectName": "Tarneeb-Game-group3",
-        "projectPath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj",
-        "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
-        "outputPath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Tarneeb-Game-group3\\obj\\",
+        "projectPath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj",
+        "packagesPath": "C:\\Users\\kaifv\\.nuget\\packages\\",
+        "outputPath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Tarneeb-Game-group3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages",
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kaifv\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\MicroFocus.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "D:\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj": {
-                "projectPath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj"
+              "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj": {
+                "projectPath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj"
               }
             }
           }
@@ -114,6 +116,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "NETStandard.Library": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
