@@ -1,11 +1,15 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "pa6Ja1HSQ6lv/qGzLQ5y0yk9fvWodpo1DmY1jjQ3neHegQTY6covIBpC6U2I9TV0hed3f/4pX/XRoCRwRczpSQ==",
+=======
+  "dgSpecHash": "hOnNt4RNiqUL21p4fEADUxjjNKv5JXU6gg4YIqGTr6d0kkcD3ebZx9GznEt0tG2ZF5lc6RJHoDpTO4Fskq88lg==",
+>>>>>>> 6bff25e8e090c75f76873949683ee058bb02dc90
   "success": true,
-  "projectFilePath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj",
+  "projectFilePath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\kaifv\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\kaifv\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

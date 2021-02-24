@@ -1,35 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj": {}
+    "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj": {}
   },
   "projects": {
-    "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj": {
+    "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj",
+        "projectUniqueName": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj",
         "projectName": "Cards",
-        "projectPath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj",
-        "packagesPath": "C:\\Users\\kaifv\\.nuget\\packages\\",
-        "outputPath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\obj\\",
+        "projectPath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\Cards.csproj",
+        "packagesPath": "C:\\Users\\patel\\.nuget\\packages\\",
+        "outputPath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Card\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Progress\\ToolboxNuGetPackages",
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\kaifv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\patel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\MicroFocus.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Telerik UI for WPF.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "D:\\Micro Focus\\Visual COBOL\\NuGetPackages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

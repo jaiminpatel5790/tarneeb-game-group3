@@ -18,7 +18,6 @@ namespace Cards
 
         public enum CardNumber
         {
-            Ace = 1,
             Two = 2,
             Three = 3,
             Four = 4,
@@ -30,7 +29,8 @@ namespace Cards
             Ten = 10,
             Jack = 11,
             Queen = 12,
-            King = 13
+            King = 13,
+            Ace = 14
         }
 
 
@@ -40,6 +40,46 @@ namespace Cards
         public Enums.Suit Suit { get; set; }
 
         public Enums.CardNumber CardNumber { get; set; }
+
+        public Enums.Suit Trump { get; set; }
+
+        
+        public Enums.Suit setTrump(Enums.Suit TrumpSuit)
+        {
+            return this.Trump = TrumpSuit; 
+        }
+        //Overloading operator.
+        public static bool operator >(Card card1, Card card2)
+        {
+            Card card = new Card();
+            Boolean decision = false;
+            if (card1.Suit == card.Trump)
+            {
+                return decision = true;
+            }
+            else if (card2.Suit == card.Trump)
+            {
+                return decision = false;
+            }
+            else if(card1.CardNumber > card2.CardNumber)
+            {
+                return decision = false;
+            }
+            return decision;
+        }
+
+
+        public static bool operator <(Card card1, Card card2)
+        {
+            if (card1.CardNumber < card2.CardNumber)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public override String ToString()
         {
@@ -59,7 +99,7 @@ namespace Cards
 
         public void Reset()
         {
-            Cards = Enumerable.Range(1, 4).SelectMany(s => Enumerable.Range(1, 13).Select(c => new Card()
+            Cards = Enumerable.Range(1, 4).SelectMany(s => Enumerable.Range(2, 14).Select(c => new Card()
                     {
                         Suit = (Enums.Suit) s,
                         CardNumber = (Enums.CardNumber) c

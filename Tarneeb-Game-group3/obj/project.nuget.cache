@@ -1,8 +1,12 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "3UAZFjNAmRN8waZORS89fgvJuzZEwDro4BlhQ74aDDW7poODn8+yStSlnuZoWXmyg53vXZ0+SGid37xdsjBB1A==",
+=======
+  "dgSpecHash": "Rw3M5VWMvPLaLJ3ffGqGdrrq3M9yYbbxdX7/1zG93791UTpMLuWqcihgoaCquRgfrPVkSoaGwIxMj/7n1f1mYQ==",
+>>>>>>> 6bff25e8e090c75f76873949683ee058bb02dc90
   "success": true,
-  "projectFilePath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj",
+  "projectFilePath": "E:\\Computer Programming Semester- 04\\OOP-III-4200\\Final-Project\\Tarneeb-Game-group3\\Tarneeb-Game-group3.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
