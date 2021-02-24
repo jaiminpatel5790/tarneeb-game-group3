@@ -36,6 +36,27 @@ namespace Tarneeb_Game_group3
             Team FirstTeam = new Team(player1, player2);
             Team SecondTeam = new Team(player3, player4);
 
+            Random number = new Random();
+            int BidPlayer = number.Next(1,4);
+            Console.WriteLine(BidPlayer);
+            int counter = 0;
+            for(int i = BidPlayer; i <= 8; i++)
+            {
+                Console.WriteLine(i);
+                if(BidPlayer < 4)
+                {
+                    //Bid.CreateBid(player[BidPlayer], tricks, suit);
+                }
+
+                counter++;
+                if(counter == 4)
+                {
+                    break;
+                }
+            }
+
+
+
         }
     }
 }
