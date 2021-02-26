@@ -32,6 +32,99 @@ namespace Tarneeb_Game_group3
             };
             return bid;
         }
+
+
+        public static void GoNext(List<Player> listOfPlayer)
+        {
+            Random number = new Random();
+            int SelectedIndex = number.Next(0, 4);
+            Console.WriteLine(SelectedIndex);
+            Player randomPlayer = listOfPlayer[SelectedIndex];
+            ////Testing
+            //Console.WriteLine("Random player " + randomPlayer);
+            
+            if(SelectedIndex == 0)
+            {
+                //player1
+                CreateBid(randomPlayer, 5, 'S');
+                SelectedIndex = 1;
+                //player2
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreatePassBid(randomPlayer);
+                SelectedIndex = 2;
+                //player 3
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 2, 'C');
+                SelectedIndex = 3;
+                //player4
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 3, 'H');
+                SelectedIndex = 0;
+               
+            }
+            if (SelectedIndex == 1)
+            {
+                //player2
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreatePassBid(randomPlayer);
+                SelectedIndex = 2;
+                //player3
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 2, 'C');
+                SelectedIndex = 3;
+                //player4
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 3, 'H');
+                SelectedIndex = 0;
+                //player1
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 5, 'S');
+                SelectedIndex = 1;
+            }
+
+            if (SelectedIndex == 2)
+            {
+                //player3
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 2, 'C');
+                SelectedIndex = 3;
+                //player4
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 3, 'H');
+                SelectedIndex = 0;
+                //player1
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 5, 'S');
+                SelectedIndex = 1;
+                //player2
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreatePassBid(randomPlayer);
+                SelectedIndex = 2;
+
+            }
+
+            if (SelectedIndex == 3)
+            {
+                //player4
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 3, 'H');
+                SelectedIndex = 0;
+                //player1
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 5, 'S');
+                SelectedIndex = 1;
+                //player2
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreatePassBid(randomPlayer);
+                SelectedIndex = 2;
+                //player3
+                randomPlayer = listOfPlayer[SelectedIndex];
+                CreateBid(randomPlayer, 2, 'C');
+                SelectedIndex = 3;
+            }
+
+
+        }
     }
 
 }

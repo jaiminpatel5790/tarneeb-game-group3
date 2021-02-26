@@ -36,50 +36,59 @@ namespace Tarneeb_Game_group3
             Player player4 = new Player("Some Doe", pass4);
             player4.playersCards.ForEach(Console.WriteLine);
 
-            Team FirstTeam = new Team(player1, player2);
-            Team SecondTeam = new Team(player3, player4);
+            Team FirstTeam = new Team(player1, player3);
+            Team SecondTeam = new Team(player2, player4);
 
-            List<Player> playerList = new List<Player>();
-            playerList.Add(player1);
-            playerList.Add(player2);
-            playerList.Add(player3);
-            playerList.Add(player4);
+            List<Player> playerList = new List<Player>{player1, player2, player3, player4};
+            //playerList.Add(player1);
+            //playerList.Add(player2);
+            //playerList.Add(player3);
+            //playerList.Add(player4);
 
-            
+            //List<string> names = new List<string> { "One", "Two", "Three", "Four", "Five" }; 
+            //for (int i = 0; i < names.Count; i++) 
+            //{ Console.WriteLine("Names " + names[i]); }
+
 
             Random number = new Random();
            
-            int BidPlayer = number.Next(1,5);
+            int BidPlayer = number.Next(1,4);
+            Console.WriteLine(BidPlayer);
+            Player randomPlayer = playerList[BidPlayer];
+            //Testing
+            Console.WriteLine("Random player " + randomPlayer);
+
+            
            
 
-            Console.WriteLine(BidPlayer);
-            int counter = 0;
+            //Console.WriteLine(BidPlayer);
+            //int counter = 0;
 
-            for(int i = BidPlayer; i <= 8; i++)
-            {
-                int secondBid = number.Next(1, 5);
-                //Player randomPlayer = playerList[BidPlayer];
-                Console.WriteLine("Player " + playerList[secondBid]);
+            //for(int i = BidPlayer; i <= 8; i++)
+            //{
+            //    int secondBid = number.Next(1, 5);
+            //    //Player randomPlayer = playerList[BidPlayer];
+            //    Console.WriteLine("Player " + playerList[secondBid]);
                 
-                Console.WriteLine(i);
-                //if (i == 1)
-                //{
-                //    int num = 1;
-                //    Object obj = num;
-                //}
-                if(BidPlayer < 4)
-                {
-                    //Bid.CreateBid(player[BidPlayer], tricks, suit);
-                }
+            //    Console.WriteLine(i);
+            //    //if (i == 1)
+            //    //{
+            //    //    int num = 1;
+            //    //    Object obj = num;
+            //    //}
+            //    if(BidPlayer < 4)
+            //    {
+            //        //Bid.CreateBid(player[BidPlayer], tricks, suit);
+            //    }
 
-                counter++;
-                Console.WriteLine("Counter " + counter);
+            //    counter++;
+            //    Console.WriteLine("Counter " + counter);
                 
-                if(counter == 4)
-                {
-                    break;
-                }
-            }
+            //    if(counter == 4)
+            //    {
+            //        break;
+            //    }
+            //}
            
 
 

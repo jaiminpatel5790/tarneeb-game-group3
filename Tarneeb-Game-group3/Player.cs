@@ -22,5 +22,10 @@ namespace Tarneeb_Game_group3
             this.playersCards = playersCards;
         }
 
+         
+        public override string ToString()
+        {
+            return "Player: " + name ;
+        }
     }
 }
