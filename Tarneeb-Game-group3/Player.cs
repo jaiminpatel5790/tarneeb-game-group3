@@ -25,7 +25,16 @@ namespace Tarneeb_Game_group3
          
         public override string ToString()
         {
-            return "Player: " + name ;
+            return name;
+        }
+
+        public enum PlayerPosition
+        {
+            South = 1,
+            East,
+            North,
+            West
         }
     }
+
 }

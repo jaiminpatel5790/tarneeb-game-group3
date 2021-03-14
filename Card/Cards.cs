@@ -10,6 +10,7 @@ namespace Cards
     {
         public enum Suit
         {
+            None = 0,
             Club = 1,
             Diamond = 2,
             Heart = 3,
@@ -18,19 +19,19 @@ namespace Cards
 
         public enum CardNumber
         {
-            Two = 2,
-            Three = 3,
-            Four = 4,
-            Five = 5,
-            Six = 6,
-            Seven = 7,
-            Eight = 8,
-            Nine = 9,
-            Ten = 10,
-            Jack = 11,
-            Queen = 12,
-            King = 13,
-            Ace = 14
+            Two = 1,
+            Three = 2,
+            Four = 3,
+            Five = 4,
+            Six = 5,
+            Seven = 6,
+            Eight = 7,
+            Nine = 8,
+            Ten = 9,
+            Jack = 10,
+            Queen = 11,
+            King = 12,
+            Ace = 13
         }
 
 
@@ -99,7 +100,7 @@ namespace Cards
 
         public void Reset()
         {
-            Cards = Enumerable.Range(1, 4).SelectMany(s => Enumerable.Range(2, 14).Select(c => new Card()
+            Cards = Enumerable.Range(1, 4).SelectMany(s => Enumerable.Range(1, 13).Select(c => new Card()
                     {
                         Suit = (Enums.Suit) s,
                         CardNumber = (Enums.CardNumber) c
@@ -138,5 +139,7 @@ namespace Cards
             return sorted;
 
         }   
+
+        
     }
 }

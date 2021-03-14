@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using Cards;
 
 namespace Tarneeb_Game_group3
 {
@@ -32,6 +34,55 @@ namespace Tarneeb_Game_group3
             };
             return bid;
         }
+
+        public override string ToString()
+        {
+            if(IsPass)
+            {
+                return Player.ToString() + " - Pass.";
+            }
+            else
+            {
+                string suitString =
+                    (Suit == (int) Enums.Suit.None) ? "No Trump" : Suit.ToString();
+                return Player.ToString() + " " + Tricks + " " + suitString;
+            }
+        }
+
+        public int CompareTo(Bid other)
+        {
+            if (this.Tricks != other.Tricks)
+            {
+                return this.Tricks.CompareTo(other.Tricks);
+            }
+            else
+            {
+                int thisSuitOrder = 4 - (int) this.Suit;
+                int otherSuitOrder = 4 - (int) other.Suit;
+
+                return thisSuitOrder.CompareTo(otherSuitOrder);
+            }
+        }
+
+        //public static int MakeBid(List<Card> listOfCards)
+        //{
+        //    if (listOfCards[3].Suit == listOfCards[4].Suit)
+        //    {
+        //        if (listOfCards[4].Suit == listOfCards[5].Suit)
+        //        {
+        //            return 6;
+        //        }
+        //        else
+        //        {
+        //            return 5;
+        //        }
+                
+        //    }
+        //    else
+        //    {
+        //        return 4;
+        //    }
+        //}
 
 
         public static void GoNext(List<Player> listOfPlayer)

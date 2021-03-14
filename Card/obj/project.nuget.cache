@@ -1,18 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "pa6Ja1HSQ6lv/qGzLQ5y0yk9fvWodpo1DmY1jjQ3neHegQTY6covIBpC6U2I9TV0hed3f/4pX/XRoCRwRczpSQ==",
+  "dgSpecHash": "gfIiXSSMPQ1P967+I23aIgThpLv7lcwelC8XoaDycrczgq05nY6Kvntkx5aLl4+4X30H0amGe8aPRPGwj0MRuA==",
   "success": true,
   "projectFilePath": "D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\Cards.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kaifv\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\kaifv\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\Semester 4\\OOP4200\\Final Project\\tarneeb-game-group3\\Card\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
