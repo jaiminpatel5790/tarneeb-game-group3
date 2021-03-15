@@ -3,6 +3,7 @@ using Cards;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Tarneeb_Game_group3
@@ -21,43 +22,26 @@ namespace Tarneeb_Game_group3
 
             // Console.WriteLine(deck.MostCards(pass1));
 
-            static int MakeBid(List<Card> listOfCards)
-            {
-                if (listOfCards[3].Suit == listOfCards[4].Suit)
-                {
-                    if (listOfCards[4].Suit == listOfCards[5].Suit)
-                    {
-                        return 6;
-                    }
-                    else
-                    {
-                        return 5;
-                    }
+            //static int MakeBid(List<Card> listOfCards)
+            //{
+            //    if (listOfCards[3].Suit == listOfCards[4].Suit)
+            //    {
+            //        if (listOfCards[4].Suit == listOfCards[5].Suit)
+            //        {
+            //            return 6;
+            //        }
+            //        else
+            //        {
+            //            return 5;
+            //        }
 
-                }
-                else
-                {
-                    return 4;
-                }
-            }
-
-            Console.WriteLine(MakeBid(pass1));
-            Console.WriteLine(MakeBid(pass2));
-            Console.WriteLine(MakeBid(pass3));
-            Console.WriteLine(MakeBid(pass4));
-
-            int trick1 = MakeBid(pass1);
-            int trick2 = MakeBid(pass2);
-            int trick3 = MakeBid(pass3);
-            int trick4 = MakeBid(pass4);
-            int higherBid = 0;
-
-            if(trick1 == trick2)
-            { 
-                higherBid = OptionalSum(trick1, trick2, pass1, pass2);
-            }
-
-            Console.WriteLine(higherBid);
+            //    }
+            //    else
+            //    {
+            //        return 4;
+            //    }
+            //}
+           
 
             //if (trick2 == trick3)
             //{
@@ -65,31 +49,7 @@ namespace Tarneeb_Game_group3
             //}
 
 
-            static int OptionalSum(int player1_trick, int player2_trick, List<Card> listOfCards1, List<Card> listOfCards2)
-            {
-                int sum1 = 0;
-                int sum2 = 0;
-
-                for (int i = 0; i < player1_trick; i++)
-                {
-                    sum1 = (int) (listOfCards1[i].CardNumber + (int) listOfCards1[i + 1].CardNumber);
-                }
-
-                for (int i = 0; i < player2_trick; i++)
-                {
-                    sum2 = (int)(listOfCards2[i].CardNumber + (int)listOfCards2[i + 1].CardNumber);
-                }
-
-                if (sum1 > sum2)
-                {
-                    return sum1;
-                }
-                else
-                {
-                    return sum2;
-                }
-
-            }
+            
 
 
             Console.WriteLine("Player 1 Cards:");
@@ -122,17 +82,39 @@ namespace Tarneeb_Game_group3
             //{ Console.WriteLine("Names " + names[i]); }
 
 
+            List<Bid> newBid = new List<Bid>();
+            Bid bid = new Bid();
+            Bid Highestbidder;
+
+            newBid = bid.GoNext(playerList);
+
+            Highestbidder = bid.HigherBid(newBid);
+            Console.WriteLine(Highestbidder.ToString());
+            Console.WriteLine("Trump suit: " + Highestbidder.Suit);
+
+            //Console.WriteLine("Highest " + newBid.HigherBid(, trick2, trick3, trick4));
+
+            // List<int> listOfTricks = new List<int>(trick1, trick2, trick3, trick4);
+            //int higherBid = 0;
+
+            //if (trick1 == trick2)
+            //{
+            //    higherBid = OptionalSum(trick1, trick2, pass1, pass2);
+            //}
+
+            //Console.WriteLine(higherBid);
 
 
-            Random number = new Random();
+            //Random number = new Random();
            
-            int BidPlayer = number.Next(1,4);
-            Console.WriteLine(BidPlayer);
-            Player randomPlayer = playerList[BidPlayer];
-            //Testing
-            Console.WriteLine("Random player " + randomPlayer);
+            //int BidPlayer = number.Next(1,4);
+            //Console.WriteLine(BidPlayer);
+            //Player randomPlayer = playerList[BidPlayer];
+            ////Testing
+            //Console.WriteLine("Random player " + randomPlayer);
 
-            
+
+
            
 
             //Console.WriteLine(BidPlayer);
@@ -143,7 +125,7 @@ namespace Tarneeb_Game_group3
             //    int secondBid = number.Next(1, 5);
             //    //Player randomPlayer = playerList[BidPlayer];
             //    Console.WriteLine("Player " + playerList[secondBid]);
-                
+
             //    Console.WriteLine(i);
             //    //if (i == 1)
             //    //{
@@ -157,13 +139,13 @@ namespace Tarneeb_Game_group3
 
             //    counter++;
             //    Console.WriteLine("Counter " + counter);
-                
+
             //    if(counter == 4)
             //    {
             //        break;
             //    }
             //}
-           
+
 
 
 
