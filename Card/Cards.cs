@@ -45,12 +45,12 @@ namespace Cards
         public Enums.Suit Trump { get; set; }
 
         
-        public Enums.Suit setTrump(Enums.Suit TrumpSuit)
+        public void setTrump(Enums.Suit TrumpSuit)
         {
-            return this.Trump = TrumpSuit; 
+             this.Trump = TrumpSuit; 
         }
         //Overloading operator.
-        public static bool operator >(Card card1, Card card2)
+        public static bool operator > (Card card1, Card card2)
         {
             Card card = new Card();
             Boolean decision = false;
@@ -58,13 +58,20 @@ namespace Cards
             {
                 return decision = true;
             }
-            else if (card2.Suit == card.Trump)
+            if (card2.Suit == card.Trump)
             {
-                return decision = false;
+                return decision = true;
             }
-            else if(card1.CardNumber > card2.CardNumber)
+            if (card1.Suit == card2.Suit)
             {
-                return decision = false;
+                if (card1.CardNumber > card2.CardNumber)
+                {
+                    decision = true;
+                }
+                else
+                {
+                    decision = false;
+                }
             }
             return decision;
         }
