@@ -74,19 +74,19 @@ namespace Tarneeb_Game_group3
 
         }
 
-        public static Card GameLogic(List<Card> listOfCards)
-        {
-            for (int i = 0; i <= listOfCards.Count; i++)
-            {
-                if (listOfCards[i].CardNumber == Enums.CardNumber.Ace)
-                {
-                    listOfCards.Remove(listOfCards[i]);
+        //public static Card GameLogic(List<Card> listOfCards)
+        //{
+        //    for (int i = 0; i <= listOfCards.Count; i++)
+        //    {
+        //        if (listOfCards[i].CardNumber == Enums.CardNumber.Ace)
+        //        {
+        //            listOfCards.Remove(listOfCards[i]);
                     
-                    break;
-                }
-                return listOfCards[i];
-            }
+        //            break;
+        //        }
+        //        return listOfCards[i];
+        //    }
            
-        }
+        //}
     }
 }
