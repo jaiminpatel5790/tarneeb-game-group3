@@ -65,15 +65,44 @@ namespace Tarneeb_Game_group3
 
            Console.WriteLine(newCard.Trump);
 
-           Player startingPlayer = Highestbidder.Player;
-           
-        
+         
+           Console.WriteLine(putCard(player1, newCard.Trump));
+           Console.WriteLine(putCard(player1, newCard.Trump));
 
+           Console.WriteLine("\nThis is the deck after the cards are taken from it\n");
+           player1.playersCards.ForEach(Console.WriteLine);
+
+            // Player startingPlayer = Highestbidder.Player;
 
 
 
         }
 
+        public static Card putCard(Player player, Enums.Suit deckTrump)
+        {
+            Card gamingCard = new Card();
+            foreach (var card in player.playersCards)
+            {
+                if (card.Suit == deckTrump)
+                {
+                    
+                    gamingCard = card;
+                    player.playersCards.Remove(card);
+                    break;
+
+                }
+              
+                
+            }
+
+            if (gamingCard == null)
+            {
+                gamingCard = player.playersCards[0];
+                player.playersCards.Remove(player.playersCards[0]);
+            }
+
+            return gamingCard;
+        }
         //public static Card GameLogic(List<Card> listOfCards)
         //{
         //    for (int i = 0; i <= listOfCards.Count; i++)
