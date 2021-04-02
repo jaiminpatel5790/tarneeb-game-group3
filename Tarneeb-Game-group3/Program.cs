@@ -65,41 +65,135 @@ namespace Tarneeb_Game_group3
 
            Console.WriteLine(newCard.Trump);
 
-         
-           Console.WriteLine(putCard(player1, newCard.Trump));
-           Console.WriteLine(putCard(player1, newCard.Trump));
 
-           Console.WriteLine("\nThis is the deck after the cards are taken from it\n");
-           player1.playersCards.ForEach(Console.WriteLine);
+           List<Card> listOfCards = new List<Card>();
+
+           Enums.Suit currentSuit = Enums.Suit.None;
+           Enums.CardNumber currentCardNumber = 0;
+           Player currentPlayer = null;
+
+            //Player startingPlayer = Highestbidder.Player;
+
+            Card player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+           Console.WriteLine("Player 1 puts: " + player1Card);
+
+         currentSuit=  player1Card.Suit;
+         currentCardNumber = player1Card.CardNumber;
+         currentPlayer = player1;
+
+         Console.WriteLine("Suit: " + currentSuit + " Card number: " + currentCardNumber + " player: " + currentPlayer);
+
+
+            Card player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+            Console.WriteLine("PLayer 2 puts: " + player2Card);
+
+            currentSuit = player2Card.Suit;
+            currentCardNumber = player2Card.CardNumber;
+            currentPlayer = player2;
+
+            Console.WriteLine("Suit: " + currentSuit + " Card number: " + currentCardNumber + " player: " + currentPlayer);
+
+            Card player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+            Console.WriteLine("PLayer 3 puts: " + player3Card);
+            currentSuit = player3Card.Suit;
+            currentCardNumber = player3Card.CardNumber;
+            currentPlayer = player3;
+
+            Console.WriteLine("Suit: " + currentSuit + " Card number: " + currentCardNumber + " player: " + currentPlayer);
+
+            Card player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+            Console.WriteLine("PLayer 4 puts: " + player4Card);
+
+            currentSuit = player4Card.Suit;
+            currentCardNumber = player4Card.CardNumber;
+            currentPlayer = player4;
+
+            Console.WriteLine("Suit: " + currentSuit + " Card number: " + currentCardNumber + " player: " + currentPlayer);
+
+
+            //listOfCards.Add(player1Card);
+            //listOfCards.Add(player2Card);
+            //listOfCards.Add(player3Card);
+            //listOfCards.Add(player4Card);
+
+
+
 
             // Player startingPlayer = Highestbidder.Player;
 
 
 
         }
+        
+        
 
-        public static Card putCard(Player player, Enums.Suit deckTrump)
+        public static Card putCard(Player player, Enums.Suit tarneebTrump, Enums.Suit suit, Enums.CardNumber cardNumber )
         {
             Card gamingCard = new Card();
-            foreach (var card in player.playersCards)
+            gamingCard = null;
+
+            List<int> lowerCards = new List<int>();
+
+         
+            if ((cardNumber == 0) && (suit == Enums.Suit.None))
             {
-                if (card.Suit == deckTrump)
+                //if (gamingCard == null)
+                //{
+                    gamingCard = player.playersCards[0];
+                    player.playersCards.Remove(player.playersCards[0]);
+                //}
+               
+            }
+            else
+            {
+                foreach (var card in player.playersCards)
                 {
-                    
-                    gamingCard = card;
-                    player.playersCards.Remove(card);
-                    break;
+                    if (card.Suit == suit)
+                    {
+                       
+                        if (cardNumber < card.CardNumber)
+                        {
+
+                            gamingCard = card;
+                            player.playersCards.Remove(card);
+                            break;
+                            
+                        }
+                        else
+                        {
+                            int card_num = (int)card.CardNumber;
+                            lowerCards.Add(card_num);
+                           // player.playersCards.Remove(card);
+                        }
+
+                    }
+                    else
+                    {
+                        Card lastCard = player.playersCards.Last();
+                        gamingCard = lastCard;
+
+                    }
 
                 }
-              
-                
+                if(lowerCards.Count > 1)
+                {
+                    int lowestCard = lowerCards.Min();
+                    foreach (var card in player.playersCards)
+                    {
+                        if (card.Suit == suit && card.CardNumber == (Enums.CardNumber)lowestCard)
+                        {
+                            gamingCard = card;
+                            player.playersCards.Remove(card);
+
+                        }
+                    }
+                }
+               
+
             }
 
-            if (gamingCard == null)
-            {
-                gamingCard = player.playersCards[0];
-                player.playersCards.Remove(player.playersCards[0]);
-            }
+
+
 
             return gamingCard;
         }
