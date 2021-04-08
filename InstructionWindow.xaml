@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Elusive.Whistle.InstructionWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Elusive.Whistle"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" Width="835.678">
+
+    <Canvas
+            Background="#FFFFFFFF">
+
+        <Button x:Name="InstructionWindow_GoBackButton"
+                Canvas.Left="10"
+                Canvas.Top="10"
+                Width="50"
+                Height="30"
+                Content="Back"
+                FontSize="20" Click="InstructionWindow_GoBackButton_Click"/>
+        <TextBlock FontFamily="Times new Roman"
+                   Text="How to play tarneeb?"
+                   FontSize="60" 
+                   Canvas.Left="140" 
+                   Canvas.Top="56"/>
+        <TextBlock Text="Tarneeb is one of the most popular card games in the Middle East, and is suitable for the whole family. It is a 4 player game," Canvas.Top="160" Canvas.Left="23"/>
+        <TextBlock Text= "where sets of two players form teams (partners would sit across from each other)." Canvas.Top="176" Canvas.Left="23"/>
+
+        <TextBlock Text="A team earns points by winning a Set or by making the other team lose a Set. A Set consists of 3 stages: the 'Talab' or 'Bid' stage," Canvas.Top="197" Canvas.Left="23"/>
+        <TextBlock Text="the 'Play' stage, and the 'Score-Counting' stage. After a Set is over, a new Set kicks off. The process continues until one of the two" Canvas.Top="213" Canvas.Left="23"/>
+        <TextBlock Text="teams passes a predetermined Terminal Score (typically 31), and wins the game!" Canvas.Top="229" Canvas.Left="23"/>
+
+        <TextBlock Text="Players have to place a bid between 7 and 13, or choose to pass on their turn. Players bid on how many hands (or tricks) they believe" Canvas.Top="250" Canvas.Left="23"/>
+        <TextBlock Text="their team could win in order from the dealer. The next player's bid has to be more than the the current highest value bid, or they can" Canvas.Top="266" Canvas.Left="23"/>
+        <TextBlock Text="choose to pass. The Player with the highest bid picks the Trump suit, i.e. the Tarneeb." Canvas.Top="282" Canvas.Left="23"/>
+
+        <TextBlock Text="The Player who picked the Tarneeb suit starts the first round or hand, and the player of each winning hand starts the next one. After a" Canvas.Top="303" Canvas.Left="23"/>
+        <TextBlock Text="player plays a card, the player on the right has to play a card of the same suit if possible. If a player does not have the suit being played, then a" Canvas.Top="319" Canvas.Left="23"/>
+        <TextBlock Text="card from any suit can be played. If all played cards are of the same suit, the player who played the highest card wins that hand. Any card of a different" Canvas.Top="335" Canvas.Left="23"/>
+        <TextBlock Text="suit (other than the Tarneeb) is worthless, and cannot win the round. If Tarneeb suit cards are played, the player who played the highest Tarneeb card wins." Canvas.Top="351" Canvas.Left="23"/>
+
+        <TextBlock Text="Each team (2 players) shares one score count. If the team who called the Tarneeb gets at least its Talab or Bet count in hand, it wins that set." Canvas.Top="375" Canvas.Left="23"/>
+        <TextBlock Text="The team's score is increased by the number of hands won and the losing team gets nothing. If the team who called the Tarneeb couldn't reach Talab" Canvas.Top="391" Canvas.Left="23"/>
+        <TextBlock Text="value, that value is subtracted from their total score, while the other team's achieved hands are added to their total score." Canvas.Top="407" Canvas.Left="23"/>
+
+
+    </Canvas>
+</UserControl>

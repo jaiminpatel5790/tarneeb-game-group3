@@ -1,0 +1,70 @@
+C:\Users\alaad\source\repos\CardDisplayTake3\bin\Debug\CardDisplayTake3.exe.config
+C:\Users\alaad\source\repos\CardDisplayTake3\bin\Debug\CardDisplayTake3.exe
+C:\Users\alaad\source\repos\CardDisplayTake3\bin\Debug\CardDisplayTake3.pdb
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3.csprojAssemblyReference.cache
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\MainWindow.g.cs
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\App.g.cs
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3_MarkupCompile.cache
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3_MarkupCompile.lref
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\MainWindow.baml
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3.g.resources
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3.Properties.Resources.resources
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3.csproj.GenerateResource.cache
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3.csproj.CoreCompileInputs.cache
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3.exe
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3.pdb
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\OrganizedCards.g.cs
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\OrganizedCards.baml
+C:\Users\alaad\source\repos\CardDisplayTake3\bin\Debug\LogsNStats.mdf
+C:\Users\alaad\source\repos\CardDisplayTake3\bin\Debug\LogsNStats_log.ldf
+C:\Users\alaad\source\repos\CardDisplayTake3\obj\Debug\CardDisplayTake3_Content.g.cs
+C:\Users\alaad\source\repos\CardDisplayTake3\bin\Debug\Logs.mdf
+C:\Users\alaad\source\repos\CardDisplayTake3\bin\Debug\Logs_log.ldf
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\bin\Debug\Logs.mdf
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\bin\Debug\LogsNStats.mdf
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\bin\Debug\LogsNStats_log.ldf
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\bin\Debug\Logs_log.ldf
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\bin\Debug\CardDisplayTake3.exe.config
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\bin\Debug\CardDisplayTake3.exe
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\bin\Debug\CardDisplayTake3.pdb
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3.csprojAssemblyReference.cache
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\MainWindow.g.cs
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\OrganizedCards.g.cs
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\App.g.cs
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3_Content.g.cs
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3_MarkupCompile.cache
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3_MarkupCompile.lref
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\MainWindow.baml
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\OrganizedCards.baml
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3.g.resources
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3.Properties.Resources.resources
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3.csproj.GenerateResource.cache
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3.csproj.CoreCompileInputs.cache
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3.exe
+D:\Semester 4\OOP4200\Tutorials\Tutorial 7 & 8\CardDisplayTake3\obj\Debug\CardDisplayTake3.pdb
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3.csprojAssemblyReference.cache
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\MainWindow.g.cs
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\App.g.cs
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3_Content.g.cs
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3_MarkupCompile.cache
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3_MarkupCompile.lref
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3.exe
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3.pdb
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\bin\Debug\Logs.mdf
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\bin\Debug\LogsNStats.mdf
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\bin\Debug\LogsNStats_log.ldf
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\bin\Debug\Logs_log.ldf
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\bin\Debug\CardDisplayTake3.exe.config
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\bin\Debug\CardDisplayTake3.exe
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\bin\Debug\CardDisplayTake3.pdb
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\MainWindow.baml
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3.g.resources
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3.Properties.Resources.resources
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3.csproj.GenerateResource.cache
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\CardDisplayTake3.csproj.CoreCompileInputs.cache
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\Instructions.g.cs
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\Instructions.baml
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\Game.g.cs
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\Game.baml
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\MakeBidWindow.g.cs
+D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\obj\Debug\MakeBidWindow.baml
