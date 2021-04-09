@@ -73,6 +73,7 @@
     </ApplicationDefinition>
     <Compile Include="bid.cs" />
     <Compile Include="Cards.cs" />
+    <Compile Include="GameLogic.cs" />
     <Compile Include="Instructions.xaml.cs">
       <DependentUpon>Instructions.xaml</DependentUpon>
     </Compile>

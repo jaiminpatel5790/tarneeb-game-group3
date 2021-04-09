@@ -317,7 +317,7 @@ namespace Tarneeb_Game_group3
 
         public override String ToString()
         {
-            return "The Player is " + Player + " Tricks: " + Tricks  + " and suit is " + Suit;
+            return "The Player is " + Player + " Tricks: " + Tricks  + " and suit is " + Suit.ToString();
         }
     }
 

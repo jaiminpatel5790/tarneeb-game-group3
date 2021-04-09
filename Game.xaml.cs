@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using Cards;
 using Tarneeb_Game_group3;
+using static CardDisplayTake3.GameLogic;
 
 namespace CardDisplayTake3
 {
@@ -48,61 +49,59 @@ namespace CardDisplayTake3
 
 
 
-        private Team FirstTeam;
-        private Team SecondTeam;
+        private static Team FirstTeam;
+        private static Team SecondTeam;
 
+        private static Deck deck = new Deck();
 
+      
+
+        private static  List<Card> playerdeck;
+        private static  List<Card> playerdeck2;
+        private static List<Card> playerdeck3;
+        private static  List<Card> playerdeck4;
+        //List<Card> playerdeck2 = deck.Sort(deck.TakeCards(13));
+        //List<Card> playerdeck3 = deck.Sort(deck.TakeCards(13));
+        //List<Card> playerdeck4 = deck.Sort(deck.TakeCards(13));
 
         private void bGetCards_Click(object sender, RoutedEventArgs e)
         {
-
-
-            var deck = new Deck();
-
             deck.Shuffle();
 
 
-
-
-            List<Card> playerdeck = deck.Sort(deck.TakeCards(13));
-
-            List<Card> playerdeck2 = deck.Sort(deck.TakeCards(13));
-            List<Card> playerdeck3 = deck.Sort(deck.TakeCards(13));
-            List<Card> playerdeck4 = deck.Sort(deck.TakeCards(13));
-
-            //player1Name = "Player 1";
-            //player1Cards = playerdeck;
-            //player2Name = "Player 2";
-            //player2Cards = playerdeck2;
-            //player3Name = "Player 3";
-            //player3Cards = playerdeck3;
-            //player4Name = "Player 4";
-            //player4Cards = playerdeck4;
+            playerdeck = deck.Sort(deck.TakeCards(13));
+            playerdeck2 = deck.Sort(deck.TakeCards(13));
+            playerdeck3 = deck.Sort(deck.TakeCards(13));
+            playerdeck4 = deck.Sort(deck.TakeCards(13));
 
             player1 = new Player("PLayer 1", playerdeck);
             player2 = new Player("Player 2", playerdeck2);
             player3 = new Player("Player 3", playerdeck3);
             player4 = new Player("Player 4", playerdeck4);
-
-            //Console.WriteLine(player1.name);
-            //player1.name = "Player 1";
-            //player1.playersCards = playerdeck;
-            //Player player2 = null;
-            //player2.name = "Player 2";
-            //player2.playersCards = playerdeck2;
-            ////player2 = new Player("Player 2", playerdeck2);
-            //player3.name = "Player 4";
-            //player3.playersCards = playerdeck3;
-            ////Player player3 = new Player("Player 3", playerdeck3);
-            //player4.name = "Player 4";
-            //player4.playersCards = playerdeck4;
-            ////Player player4 = new Player("Player 4", playerdeck4);
-
-            Team FirstTeam = new Team(player1, player3);
-            Team SecondTeam = new Team(player2, player4);
-
             
+             FirstTeam = new Team(player1, player3);
+             SecondTeam = new Team(player2, player4);
+
+
             foreach (Card card in playerdeck)
+            {
+                card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
+
+            }
+
+            foreach (Card card in playerdeck2)
+            {
+                card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
+
+            }
+
+            foreach (Card card in playerdeck3)
+            {
+                card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
+
+            }
+
+            foreach (Card card in playerdeck4)
             {
                 card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
 
@@ -131,12 +130,15 @@ namespace CardDisplayTake3
 
         }
 
+        #region GettingImagesEventHandlers
+
         private void imgPlayer1Played_Drop(object sender, DragEventArgs e)
         {
 
             Image img = e.Source as Image;
             img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
-           // Helper.InsertEvent("Card Played");
+
+            // Helper.InsertEvent("Card Played");
         }
 
         private void card1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -258,26 +260,30 @@ namespace CardDisplayTake3
             card13.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
-        private void imgPlayer2Played_Drop(object sender, DragEventArgs e)
-        {
-            Image img = e.Source as Image;
-            img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
-          //  Helper.InsertEvent("Card Played");
-        }
+        //private void imgPlayer2Played_Drop(object sender, DragEventArgs e)
+        //{
+        //    Image img = e.Source as Image;
+        //    img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
+        //  //  Helper.InsertEvent("Card Played");
+        //}
 
-        private void imgPlayer3Played_Drop(object sender, DragEventArgs e)
-        {
-            Image img = e.Source as Image;
-            img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
-            //Helper.InsertEvent("Card Played");
-        }
+        //private void imgPlayer3Played_Drop(object sender, DragEventArgs e)
+        //{
+        //    Image img = e.Source as Image;
+        //    img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
+        //    //Helper.InsertEvent("Card Played");
+        //}
 
-        private void imgPlayer4Played_Drop(object sender, DragEventArgs e)
-        {
-            Image img = e.Source as Image;
-            img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
-            // Helper.InsertEvent("Card Played");
-        }
+        //private void imgPlayer4Played_Drop(object sender, DragEventArgs e)
+        //{
+        //    Image img = e.Source as Image;
+        //    img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
+        //    // Helper.InsertEvent("Card Played");
+        //}
+
+
+        #endregion
+
 
 
         private void Btntomenu_OnClick(object sender, RoutedEventArgs e)
@@ -347,16 +353,234 @@ namespace CardDisplayTake3
 
             };
 
-            newBid.Add(player1Bid);
+            newBid.Insert(0, player1Bid);
 
             Highestbidder = bid.HigherBid(newBid);
 
-           Console.WriteLine(newBid[0].Suit);
-
             lblHighestBid.Content = Highestbidder.ToString();
+            Card newCard = new Card();
+            newCard.setTrump((Enums.Suit) Highestbidder.Suit);
+
+            while (FirstTeam.score != 42 || SecondTeam.score != 42)
+            {
+                List<Card> listOfCards = new List<Card>();
+
+                Enums.Suit currentSuit = Enums.Suit.None;
+                Enums.CardNumber currentCardNumber = 0;
+                Player currentPlayer = null;
+
+                Player startingPlayer = Highestbidder.Player;
+
+
+                card1.IsEnabled = true;
+                card2.IsEnabled = true;
+                card3.IsEnabled = true;
+                card4.IsEnabled = true;
+                card5.IsEnabled = true;
+                card6.IsEnabled = true;
+                card7.IsEnabled = true;
+                card8.IsEnabled = true;
+                card9.IsEnabled = true;
+                card10.IsEnabled = true;
+                card11.IsEnabled = true;
+                card12.IsEnabled = true;
+                card13.IsEnabled = true;
+
+                //Card player1Card = putCard(Highestbidder.Player, newCard.Trump, currentSuit, currentCardNumber);
+                Card player1Card = null;
+                Card player2Card = null;
+                Card player3Card = null;
+                Card player4Card = null;
+
+
+                //currentSuit = player1Card.Suit;
+                //currentCardNumber = player1Card.CardNumber;
+                //currentPlayer = Highestbidder.Player;
+                //If player 1 is the highest bidder, then the order of gameplay would be player1, player2, player3, player4
+                if (Highestbidder.Player == player1)
+                {
+                    //Player 1 plays card
+                    player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player1Card.Suit;
+                    currentCardNumber = player1Card.CardNumber;
+                    currentPlayer = player1;
+
+                    imgPlayer1Played.Source = player1Card.cardImage;
+                    foreach (var card in playerdeck)
+                    {
+                        if (card == player1Card)
+                        {
+                            card1.Source = Helper.GetImage("/images/blankplayingcard.png");
+                        }
+                    }
+
+
+
+                    //Player 2 plays card
+                    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player2Card.Suit;
+                    currentCardNumber = player2Card.CardNumber;
+                    currentPlayer = player2;
+
+                    imgPlayer2Played.Source = player2Card.cardImage;
+
+                    //Player 3 plays card
+                    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player3Card.Suit;
+                    currentCardNumber = player3Card.CardNumber;
+                    currentPlayer = player3;
+
+                    imgPlayer3Played.Source = player3Card.cardImage;
+
+                    //Player 4 plays card.
+                    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player4Card.Suit;
+                    currentCardNumber = player4Card.CardNumber;
+                    currentPlayer = player4;
+
+                    imgPlayer4Played.Source = player4Card.cardImage;
+                }
+                if (Highestbidder.Player == player2)
+                {
+                    //Player 2 plays card
+                    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player2Card.Suit;
+                    currentCardNumber = player2Card.CardNumber;
+                    currentPlayer = player2;
+
+                    imgPlayer2Played.Source = player2Card.cardImage;
+
+                    //Player 3 plays card
+                    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player3Card.Suit;
+                    currentCardNumber = player3Card.CardNumber;
+                    currentPlayer = player3;
+
+                    imgPlayer3Played.Source = player3Card.cardImage;
+
+                    //Player 4 plays card
+                    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player4Card.Suit;
+                    currentCardNumber = player4Card.CardNumber;
+                    currentPlayer = player4;
+
+                    imgPlayer4Played.Source = player4Card.cardImage;
+
+                    //Player 1 plays card
+                    player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player1Card.Suit;
+                    currentCardNumber = player1Card.CardNumber;
+                    currentPlayer = player1;
+
+                    imgPlayer1Played.Source = player1Card.cardImage;
+                }
+                if (Highestbidder.Player == player3)
+                {
+                    //Player 3 plays card
+                    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player3Card.Suit;
+                    currentCardNumber = player3Card.CardNumber;
+                    currentPlayer = player3;
+
+                    imgPlayer3Played.Source = player3Card.cardImage;
+
+                    //Player 4 plays card
+                    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player4Card.Suit;
+                    currentCardNumber = player4Card.CardNumber;
+                    currentPlayer = player4;
+
+                    imgPlayer4Played.Source = player4Card.cardImage;
+
+                    //Player 1 plays card
+                    player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player1Card.Suit;
+                    currentCardNumber = player1Card.CardNumber;
+                    currentPlayer = player1;
+
+                    imgPlayer1Played.Source = player1Card.cardImage;
+
+                    //Player 2 plays card
+                    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player2Card.Suit;
+                    currentCardNumber = player2Card.CardNumber;
+                    currentPlayer = player2;
+
+                    imgPlayer2Played.Source = player2Card.cardImage;
+
+                }
+                if (Highestbidder.Player == player4)
+                {
+                    //Player 4 plays card
+                    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player4Card.Suit;
+                    currentCardNumber = player4Card.CardNumber;
+                    currentPlayer = player4;
+
+                    imgPlayer4Played.Source = player4Card.cardImage;
+
+                    //Player 1 plays card
+                    player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player1Card.Suit;
+                    currentCardNumber = player1Card.CardNumber;
+                    currentPlayer = player1;
+
+                    imgPlayer1Played.Source = player1Card.cardImage;
+
+                    //Player 2 plays card
+                    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player2Card.Suit;
+                    currentCardNumber = player2Card.CardNumber;
+                    currentPlayer = player2;
+
+                    imgPlayer2Played.Source = player2Card.cardImage;
+
+                    //Player 3 plays card
+                    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                    currentSuit = player3Card.Suit;
+                    currentCardNumber = player3Card.CardNumber;
+                    currentPlayer = player3;
+
+                    imgPlayer3Played.Source = player3Card.cardImage;
+
+
+                }
+
+                List<Card> roundCards = new List<Card>();
+                roundCards.Add(player1Card);
+                roundCards.Add(player2Card);
+                roundCards.Add(player3Card);
+                roundCards.Add(player4Card);
+
+                Card WinningCard = HighestCard(roundCards, (Enums.Suit)Highestbidder.Suit);
+
+                if (WinningCard == player1Card || WinningCard == player3Card)
+                {
+                    lblroundwinners.Content += "Team 1 Wins\n";
+                    FirstTeam.score += 7;
+                }
+                else
+                {
+                    lblroundwinners.Content += "Team 2 Wins\n";
+                    SecondTeam.score += 7;
+
+                }
+
+            }
+
+            if(FirstTeam.score == 42)
+            {
+                lblroundwinners.Content = "This game has been won by first team!";
+            }
+
+            if (SecondTeam.score == 42)
+            {
+                lblroundwinners.Content = "This game has been won by second team!";
+            }
+
 
         }
 
-       
+
     }
 }

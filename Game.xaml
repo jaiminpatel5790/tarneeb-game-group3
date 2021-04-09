@@ -30,7 +30,7 @@
                 Height="150" 
                 Width="160"
                 Canvas.Bottom="-50"
-                Drop="imgPlayer2Played_Drop" 
+               
                 Source="images/blankplayingcard.png" 
                />
             <Image x:Name="imgPlayer3Played" AllowDrop="True" 
@@ -40,7 +40,6 @@
                    Width="160"
                    Canvas.Bottom="70"
                    Canvas.Right="-60"
-                   Drop="imgPlayer3Played_Drop" 
                    Source="images/blankplayingcard.png" 
             />
             <Image x:Name="imgPlayer4Played" AllowDrop="True" 
@@ -50,7 +49,7 @@
                    Width="160"
                    Canvas.Bottom="-50"
                    Canvas.Right="60"
-                   Drop="imgPlayer4Played_Drop" 
+                 
                    Source="images/blankplayingcard.png" 
             />
 
@@ -85,17 +84,29 @@
             </ComboBox>
 
             <Label
-                Background="DarkGoldenrod"
+                Background="Aqua"
                 Name="lblHighestBid"
                 Height="33"
                 Width="280"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" 
                 Canvas.Left="938"
-                Canvas.Top="363"
+                Canvas.Top="335"
                 FontWeight="Bold"
-                FontSize="10"
+                FontSize="15"
             ></Label>
+            <Label
+                Background="Aqua"
+                Name="lblroundwinners"
+                Height="128"
+                Width="280"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" 
+                Canvas.Left="938"
+                Canvas.Top="400"
+                FontWeight="Bold"
+                FontSize="15"
+                ></Label>
             <Button Background="White"
                     Width="150"
                     Height="50"  
@@ -160,9 +171,9 @@
             <Label Background="Beige" 
                    FontSize="20" 
                    FontWeight="Bold" 
-                   Canvas.Left="1150"
+                   Canvas.Left="1189"
                    Canvas.Top="673" Canvas.Right="20">
-                PLayer 1 Bid
+                Player 1 Bid
             </Label>
             <TextBox
                 Background="White"
@@ -180,9 +191,9 @@
             <Label Background="Beige" 
                    FontSize="20"
                    FontWeight="Bold" 
-                   Canvas.Left="1347"
+                   Canvas.Left="1319"
                    Canvas.Top="80">
-                PLayer 2 Bid
+                Player 2 Bid
             </Label>
             <TextBox
                 Background="White"
@@ -201,19 +212,19 @@
                    FontSize="20"
                    FontWeight="Bold" 
                    Canvas.Right="1150"
-                   Canvas.Top="82" Canvas.Left="150">
-                PLayer 3 Bid
+                   Canvas.Top="83" Canvas.Left="147">
+                Player 3 Bid
             </Label>
             <TextBox
                 Background="White"
                 Width="40"
                 Height="40"
                 Name="txtplayer3bid"
-                Canvas.Top="79"
+                Canvas.Top="80"
                 Canvas.Right="1321" Canvas.Bottom="699" 
                 FontSize="20"
                 FontFamily="Times New Roman bold" 
-                FontWeight="Bold" Canvas.Left="290" 
+                FontWeight="Bold" Canvas.Left="274" 
             >
 
             </TextBox>
@@ -222,7 +233,7 @@
                    FontWeight="Bold" 
                    Canvas.Right="1550"
                    Canvas.Top="673" Canvas.Left="20">
-                PLayer 4 Bid
+                Player 4 Bid
             </Label>
             <TextBox
                 Background="White"
@@ -233,7 +244,7 @@
                 Canvas.Right="1321" Canvas.Top="670" 
                 FontSize="20"
                 FontFamily="Times New Roman bold" 
-                FontWeight="Bold" Canvas.Left="187" 
+                FontWeight="Bold" Canvas.Left="147" 
             >
 
             </TextBox>
@@ -253,7 +264,7 @@
                 </ListView.ItemContainerStyle>
                 <Image x:Name="card1" 
                        Source="images/cards/back.bmp"                Height="150"
-              
+                IsEnabled="False"
                HorizontalAlignment="Center" 
                MouseLeftButtonDown="card1_MouseLeftButtonDown"/>
 
@@ -261,74 +272,74 @@
 
                 <Image x:Name="card2" 
                        Source="images/cards/back.bmp"                Height="150"
-              
+                       IsEnabled="False"
                HorizontalAlignment="Center"
                        
                        MouseLeftButtonDown="card2_MouseLeftButtonDown"/>
 
                 <Image x:Name="card3" 
                        Source="images/cards/back.bmp"                Height="150"
-               
+                       IsEnabled="False"
                   HorizontalAlignment="Center"
                        MouseLeftButtonDown="card3_MouseLeftButtonDown"/>
 
 
                 <Image x:Name="card4" 
                        Source="images/cards/back.bmp"                Height="150"
-               
+                       IsEnabled="False"
            HorizontalAlignment="Center"  
                        MouseLeftButtonDown="card4_MouseLeftButtonDown"/>
 
                 <Image x:Name="card5" 
                        Source="images/cards/back.bmp"                Height="150"
-              
+                       IsEnabled="False"
              HorizontalAlignment="Center"
                        MouseLeftButtonDown="card5_MouseLeftButtonDown"/>
 
                 <Image x:Name="card6" 
                        Source="images/cards/back.bmp"                Height="150"
-              
+                       IsEnabled="False"
                HorizontalAlignment="Center"
                        MouseLeftButtonDown="card6_MouseLeftButtonDown"/>
 
                 <Image x:Name="card7" 
                        Source="images/cards/back.bmp"                Height="150"
-             
+                       IsEnabled="False"
                 HorizontalAlignment="Center"
                        MouseLeftButtonDown="card7_MouseLeftButtonDown"/>
 
                 <Image x:Name="card8" 
                        Source="images/cards/back.bmp"                Height="150"
-               
+                       IsEnabled="False"
                  HorizontalAlignment="Center"
                        MouseLeftButtonDown="card8_MouseLeftButtonDown"/>
 
                 <Image x:Name="card9" 
                        Source="images/cards/back.bmp"                Height="150"
-              
+                       IsEnabled="False"
               HorizontalAlignment="Center"
                        MouseLeftButtonDown="card9_MouseLeftButtonDown"/>
 
                 <Image x:Name="card10" 
                        Source="images/cards/back.bmp"                Height="150"
-              
+                       IsEnabled="False"
               HorizontalAlignment="Center"
                        MouseLeftButtonDown="card10_MouseLeftButtonDown"/>
                 <Image x:Name="card11" 
                        Source="images/cards/back.bmp"                Height="150"
-               
+                       IsEnabled="False"
                  HorizontalAlignment="Center"
                        MouseLeftButtonDown="card11_MouseLeftButtonDown"/>
 
                 <Image x:Name="card12" 
                        Source="images/cards/back.bmp"                Height="150"
-               
+                       IsEnabled="False"
                 HorizontalAlignment="Center"
                        MouseLeftButtonDown="card12_MouseLeftButtonDown"/>
 
                 <Image x:Name="card13" 
                        Source="images/cards/back.bmp"                Height="150"
-             
+                       IsEnabled="False"
               HorizontalAlignment="Center"
                        MouseLeftButtonDown="card13_MouseLeftButtonDown"/>
 
