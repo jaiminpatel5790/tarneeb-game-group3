@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using Cards;
+using Tarneeb_Game_group3;
 
 namespace CardDisplayTake3
 {
@@ -25,6 +26,32 @@ namespace CardDisplayTake3
         {
             InitializeComponent();
         }
+
+        private static String player1Name;
+        private static List<Card> player1Cards;
+
+        private static String player2Name;
+        private static List<Card> player2Cards;
+
+        private static String player3Name;
+        private static List<Card> player3Cards;
+
+        private static String player4Name;
+        private static List<Card> player4Cards;
+
+
+        private static Player player1;
+        private static Player player2;
+        private static Player player3;
+        private static Player player4;
+
+
+
+
+        private Team FirstTeam;
+        private Team SecondTeam;
+
+
 
         private void bGetCards_Click(object sender, RoutedEventArgs e)
         {
@@ -42,6 +69,39 @@ namespace CardDisplayTake3
             List<Card> playerdeck2 = deck.Sort(deck.TakeCards(13));
             List<Card> playerdeck3 = deck.Sort(deck.TakeCards(13));
             List<Card> playerdeck4 = deck.Sort(deck.TakeCards(13));
+
+            //player1Name = "Player 1";
+            //player1Cards = playerdeck;
+            //player2Name = "Player 2";
+            //player2Cards = playerdeck2;
+            //player3Name = "Player 3";
+            //player3Cards = playerdeck3;
+            //player4Name = "Player 4";
+            //player4Cards = playerdeck4;
+
+            player1 = new Player("PLayer 1", playerdeck);
+            player2 = new Player("Player 2", playerdeck2);
+            player3 = new Player("Player 3", playerdeck3);
+            player4 = new Player("Player 4", playerdeck4);
+
+            //Console.WriteLine(player1.name);
+            //player1.name = "Player 1";
+            //player1.playersCards = playerdeck;
+            //Player player2 = null;
+            //player2.name = "Player 2";
+            //player2.playersCards = playerdeck2;
+            ////player2 = new Player("Player 2", playerdeck2);
+            //player3.name = "Player 4";
+            //player3.playersCards = playerdeck3;
+            ////Player player3 = new Player("Player 3", playerdeck3);
+            //player4.name = "Player 4";
+            //player4.playersCards = playerdeck4;
+            ////Player player4 = new Player("Player 4", playerdeck4);
+
+            Team FirstTeam = new Team(player1, player3);
+            Team SecondTeam = new Team(player2, player4);
+
+            
             foreach (Card card in playerdeck)
             {
                 card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
@@ -64,12 +124,10 @@ namespace CardDisplayTake3
 
 
             bGetCards.IsEnabled = false;
+            bidSelector.IsEnabled = true;
+            suitSelector.IsEnabled = true;
+            btnOkay.IsEnabled = true;
 
-            
-
-            
-
-        
 
         }
 
@@ -241,6 +299,64 @@ namespace CardDisplayTake3
             btnOkay.IsEnabled = false;
             bidSelector.IsEnabled = false;
             txtbiddingNumber.IsEnabled = false;
+            suitSelector.IsEnabled = false;
+
+            List<Player> playerList = new List<Player> {player2, player3, player4};
+
+            //Console.WriteLine(player2.name);
+            List<Bid> newBid = new List<Bid>();
+            Bid bid = new Bid();
+            Bid Highestbidder;
+
+            newBid = bid.GoNext(playerList);
+
+          
+            txtplayer2bid.Text = newBid[0].Tricks.ToString();
+            txtplayer3bid.Text = newBid[1].Tricks.ToString();
+            txtplayer4bid.Text = newBid[2].Tricks.ToString();
+
+            txtplayer2bid.IsEnabled = false;
+            txtplayer3bid.IsEnabled = false;
+            txtplayer4bid.IsEnabled = false;
+            int ourbid = Convert.ToInt32(bidSelector.Text);
+            char oursuit = 'H';
+            if (suitSelector.Text == "Spades")
+            {
+                oursuit = 'S';
+            }
+            if (suitSelector.Text == "Heart")
+            {
+                oursuit = 'H';
+            }
+            if (suitSelector.Text == "Club")
+            {
+                oursuit = 'C';
+            }
+            if (suitSelector.Text == "Diamond")
+            {
+                oursuit = 'D';
+            }
+            // char oursuit = Convert.ToChar(suitSelector.Text);
+
+            Bid player1Bid = new Bid()
+            {
+                IsPass = false,
+                Player = player1,
+                Tricks = ourbid,
+                Suit = oursuit
+
+            };
+
+            newBid.Add(player1Bid);
+
+            Highestbidder = bid.HigherBid(newBid);
+
+           Console.WriteLine(newBid[0].Suit);
+
+            lblHighestBid.Content = Highestbidder.ToString();
+
         }
+
+       
     }
 }

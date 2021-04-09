@@ -75,18 +75,18 @@ namespace Cards
 
         }
 
-        public const string PLAYING_CARDS_PATH = @"/images/cards";
+        public const string PLAYING_CARDS_PATH = @"D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\images\cards\";
         public BitmapImage GetCardImagePath(Enums.Suit suit, Enums.CardNumber card, Boolean isFlipped)
         {
             if (isFlipped == true)
             {
 
-                return Helper.GetImage(PLAYING_CARDS_PATH + "/back.bmp");
+                return Helper.GetImage(PLAYING_CARDS_PATH + "\\back.bmp");
             }
             else
             {
 
-                return Helper.GetImage(PLAYING_CARDS_PATH + "/" + suit.ToString() + (int)card + ".png");
+                return Helper.GetImage(PLAYING_CARDS_PATH + "\\" + suit.ToString() + (int)card + ".png");
             }
 
 

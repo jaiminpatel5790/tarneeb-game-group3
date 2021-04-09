@@ -9,10 +9,10 @@ namespace Tarneeb_Game_group3
 {
     class Bid
     {
-        public bool IsPass { get; private set; }
-        public int Tricks { get; private set; }
-        public char Suit { get; private set; }
-        public Player Player { get; private set; }
+        public bool IsPass { get; set; }
+        public int Tricks { get; set; }
+        public char Suit { get; set; }
+        public Player Player { get; set; }
 
         public static Bid CreateBid(Player player)
         {
@@ -21,8 +21,16 @@ namespace Tarneeb_Game_group3
             if (player.playersCards[3].Suit == player.playersCards[4].Suit)
             {
                 if (player.playersCards[4].Suit == player.playersCards[5].Suit)
-                { 
-                    tricks =  6;
+                {
+                    if (player.playersCards[5].Suit == player.playersCards[6].Suit)
+                    {
+                        tricks = 7;
+                    }
+                    else
+                    {
+                        tricks = 6;
+                    }
+                   
 
                 }
                 else
@@ -196,16 +204,16 @@ namespace Tarneeb_Game_group3
 
        }
 
-        public List<Bid> GoNext(List<Player> listOfPlayer)
+        public  List<Bid> GoNext(List<Player> listOfPlayer)
         {
             Random number = new Random();
-            int SelectedIndex = number.Next(0, 4);
+            int SelectedIndex = number.Next(0, 3);
             Console.WriteLine(SelectedIndex);
             Player randomPlayer = listOfPlayer[SelectedIndex];
             ////Testing
             //Console.WriteLine("Random player " + randomPlayer);
             List<Bid> bidders = new List<Bid>();
-            Bid player1Bid = new Bid();
+            //Bid player1Bid = new Bid();
             Bid player2Bid = new Bid();
             Bid player3Bid = new Bid();
             Bid player4Bid = new Bid();
@@ -215,16 +223,16 @@ namespace Tarneeb_Game_group3
             if (SelectedIndex == 0)
             {
                 //player1
-                player1Bid = FindBid(randomPlayer);
-                SelectedIndex = 1;
+                //player1Bid = FindBid(randomPlayer);
+                //SelectedIndex = 1;
                 //player2
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player2Bid = FindBid(randomPlayer);
-                SelectedIndex = 2;
+                SelectedIndex = 1;
                 //player 3
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player3Bid = FindBid(randomPlayer);
-                SelectedIndex = 3;
+                SelectedIndex = 2;
                 //player4
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player4Bid = FindBid(randomPlayer);
@@ -235,66 +243,70 @@ namespace Tarneeb_Game_group3
             }
             if (SelectedIndex == 1)
             {
-                //player2
-                randomPlayer = listOfPlayer[SelectedIndex];
-                player2Bid = FindBid(randomPlayer);
-                SelectedIndex = 2;
                 //player3
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player3Bid = FindBid(randomPlayer);
-                SelectedIndex = 3;
+                SelectedIndex = 2;
                 //player4
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player4Bid = FindBid(randomPlayer);
                 SelectedIndex = 0;
-                //player1
+                //player2
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player1Bid = FindBid(randomPlayer);
-                SelectedIndex = 1;
+                player2Bid = FindBid(randomPlayer);
+                SelectedIndex = 0;
+               
+               
+                //player1
+                //randomPlayer = listOfPlayer[SelectedIndex];
+                //player1Bid = FindBid(randomPlayer);
+                //SelectedIndex = 1;
             }
 
             if (SelectedIndex == 2)
             {
-                //player3
-                randomPlayer = listOfPlayer[SelectedIndex];
-                player3Bid = FindBid(randomPlayer);
-                SelectedIndex = 3;
                 //player4
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player4Bid = FindBid(randomPlayer);
                 SelectedIndex = 0;
-                //player1
-                randomPlayer = listOfPlayer[SelectedIndex];
-                player1Bid = FindBid(randomPlayer);
-                SelectedIndex = 1;
                 //player2
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player2Bid = FindBid(randomPlayer);
-                SelectedIndex = 2;
-
-            }
-
-            if (SelectedIndex == 3)
-            {
-                //player4
-                randomPlayer = listOfPlayer[SelectedIndex];
-                player4Bid = FindBid(randomPlayer);
-                SelectedIndex = 0;
-                //player1
-                randomPlayer = listOfPlayer[SelectedIndex];
-                player1Bid = FindBid(randomPlayer);
                 SelectedIndex = 1;
-                //player2
-                randomPlayer = listOfPlayer[SelectedIndex];
-                player2Bid = FindBid(randomPlayer);
-                SelectedIndex = 2;
                 //player3
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player3Bid = FindBid(randomPlayer);
                 SelectedIndex = 3;
+               
+                //player1
+                //randomPlayer = listOfPlayer[SelectedIndex];
+                //player1Bid = FindBid(randomPlayer);
+                //SelectedIndex = 1;
+               
+
             }
 
-            bidders.Add(player1Bid);
+            //if (SelectedIndex == 3)
+            //{
+            //    //player4
+            //    randomPlayer = listOfPlayer[SelectedIndex];
+            //    player4Bid = FindBid(randomPlayer);
+            //    SelectedIndex = 0;
+            //    //player1
+            //    //randomPlayer = listOfPlayer[SelectedIndex];
+            //    //player1Bid = FindBid(randomPlayer);
+            //    //SelectedIndex = 1;
+            //    //player2
+            //    randomPlayer = listOfPlayer[SelectedIndex];
+            //    player2Bid = FindBid(randomPlayer);
+            //    SelectedIndex = 2;
+            //    //player3
+            //    randomPlayer = listOfPlayer[SelectedIndex];
+            //    player3Bid = FindBid(randomPlayer);
+            //    SelectedIndex = 3;
+            //}
+
+            //bidders.Add(player1Bid);
             bidders.Add(player2Bid);
             bidders.Add(player3Bid);
             bidders.Add(player4Bid);
@@ -305,7 +317,7 @@ namespace Tarneeb_Game_group3
 
         public override String ToString()
         {
-            return "The Player is" + Player + "\n Tricks:" + Tricks  + " and suit is " + Suit;
+            return "The Player is " + Player + " Tricks: " + Tricks  + " and suit is " + Suit;
         }
     }
 

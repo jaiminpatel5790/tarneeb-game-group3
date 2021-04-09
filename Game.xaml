@@ -62,7 +62,8 @@
         <Canvas>
 
             <ComboBox Name="bidSelector" Height="30" Width="150"
-                      Canvas.Top="577" Canvas.Left="461">
+                      Canvas.Top="577" Canvas.Left="461"
+                      IsEnabled="False">
                 <ComboBoxItem Content="4"/>
                 <ComboBoxItem Content="5"/>
                 <ComboBoxItem Content="6"/>
@@ -73,6 +74,28 @@
                 <ComboBoxItem Content="11"/>
 
             </ComboBox>
+            <ComboBox Name="suitSelector" Height="30" Width="150"
+                      Canvas.Top="577" Canvas.Left="257"
+                      IsEnabled="False">
+                <ComboBoxItem Content="Spades"/>
+                <ComboBoxItem Content="Heart"/>
+                <ComboBoxItem Content="Club"/>
+                <ComboBoxItem Content="Diamond"/>
+
+            </ComboBox>
+
+            <Label
+                Background="DarkGoldenrod"
+                Name="lblHighestBid"
+                Height="33"
+                Width="280"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" 
+                Canvas.Left="938"
+                Canvas.Top="363"
+                FontWeight="Bold"
+                FontSize="10"
+            ></Label>
             <Button Background="White"
                     Width="150"
                     Height="50"  
@@ -82,6 +105,7 @@
                     Canvas.Top="557" 
                     FontSize="20"
                     FontFamily="Times New Roman bold" 
+                    IsEnabled="False"
                     Name="btnOkay"
                     Click="BtnOKay_OnClick">
 
@@ -99,22 +123,22 @@
                     x:Name="btntomenu"
                     Click="Btntomenu_OnClick"  >
                 <StackPanel>
-                    <Image Source="D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\images\back.png" Stretch="Fill" />
+                    <Image Source="D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\images\back.png" Stretch="Fill" Height="86" />
                     <TextBlock>Back to menu</TextBlock>
                 </StackPanel>
 
             </Button>
             <Button Background="purple"
                     Width="150" 
-                    Height="150"
+                    Height="64"
                     Canvas.Right="290"
-                    Canvas.Top="300"
+                    Canvas.Top="200"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     FontSize="25"
                     FontFamily="Times New Roman bold" 
                     x:Name="bexit"
-                    Click="Bexit_OnClick">
+                    Click="Bexit_OnClick" Canvas.Left="1127">
 
                 End Game
             </Button>
@@ -126,26 +150,93 @@
                 Canvas.Bottom="200"
                 Canvas.Left="680"
                 FontSize="20"
-                FontFamily="Times New Roman bold" 
+                FontFamily="Times New Roman bold"
+                
                 x:Name="bGetCards"
                 Click="bGetCards_Click">
 
                 Distribute Cards
             </Button>
+            <Label Background="Beige" 
+                   FontSize="20" 
+                   FontWeight="Bold" 
+                   Canvas.Left="1150"
+                   Canvas.Top="673" Canvas.Right="20">
+                PLayer 1 Bid
+            </Label>
             <TextBox
                 Background="White"
                 Width="40"
                 Height="40"
                 Name="txtbiddingNumber"
                 Canvas.Bottom="200"
-                Canvas.Left="1193" Canvas.Top="699" 
+                Canvas.Left="1315" Canvas.Top="670" 
                 FontSize="20"
                 FontFamily="Times New Roman bold" 
                 FontWeight="Bold"
                 >
 
             </TextBox>
+            <Label Background="Beige" 
+                   FontSize="20"
+                   FontWeight="Bold" 
+                   Canvas.Left="1347"
+                   Canvas.Top="80">
+                PLayer 2 Bid
+            </Label>
+            <TextBox
+                Background="White"
+                Width="40"
+                Height="40"
+                Name="txtplayer2bid"
+                Canvas.Top="80"
+                Canvas.Left="1274" Canvas.Bottom="699" 
+                FontSize="20"
+                FontFamily="Times New Roman bold" 
+                FontWeight="Bold" 
+            >
 
+            </TextBox>
+            <Label Background="Beige" 
+                   FontSize="20"
+                   FontWeight="Bold" 
+                   Canvas.Right="1150"
+                   Canvas.Top="82" Canvas.Left="150">
+                PLayer 3 Bid
+            </Label>
+            <TextBox
+                Background="White"
+                Width="40"
+                Height="40"
+                Name="txtplayer3bid"
+                Canvas.Top="79"
+                Canvas.Right="1321" Canvas.Bottom="699" 
+                FontSize="20"
+                FontFamily="Times New Roman bold" 
+                FontWeight="Bold" Canvas.Left="290" 
+            >
+
+            </TextBox>
+            <Label Background="Beige" 
+                   FontSize="20"
+                   FontWeight="Bold" 
+                   Canvas.Right="1550"
+                   Canvas.Top="673" Canvas.Left="20">
+                PLayer 4 Bid
+            </Label>
+            <TextBox
+                Background="White"
+                Width="40"
+                Height="40"
+                Name="txtplayer4bid"
+                Canvas.Bottom="123"
+                Canvas.Right="1321" Canvas.Top="670" 
+                FontSize="20"
+                FontFamily="Times New Roman bold" 
+                FontWeight="Bold" Canvas.Left="187" 
+            >
+
+            </TextBox>
             <ListView Canvas.Bottom="10" Canvas.Left="400" >
 
                 <ListView.ItemsPanel>
