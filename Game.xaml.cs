@@ -605,6 +605,6 @@ namespace CardDisplayTake3
 
         }
 
-
+        
     }
 }

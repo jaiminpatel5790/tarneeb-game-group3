@@ -12,7 +12,7 @@
         WindowState="Maximized">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="D:\Semester 4\OOP4200\Final Project\Whistle-master\Elusive.Whistle.Core\Resources\Images\Felt-Blue.jpg"></ImageBrush>
+            <ImageBrush ImageSource="Resources/Felt-Blue.jpg"></ImageBrush>
         </Grid.Background>
 
         <Grid.RowDefinitions>

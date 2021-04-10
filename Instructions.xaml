@@ -27,7 +27,7 @@
                    FontSize="60" 
                    Canvas.Left="140" 
                    Canvas.Top="56"/>
-        <TextBlock HorizontalAlignment="Center" Text="Tarneeb is one of the most popular card games in the Middle East, and is suitable for the whole family. It is a 4 player game," Canvas.Top="160" Canvas.Left="23"/>
+        <TextBlock HorizontalAlignment="Center"  Text="Tarneeb is one of the most popular card games in the Middle East, and is suitable for the whole family. It is a 4 player game," Canvas.Top="160" Canvas.Left="23"/>
         <TextBlock Text= "where sets of two players form teams (partners would sit across from each other)." Canvas.Top="176" Canvas.Left="23"/>
 
         <TextBlock Text="A team earns points by winning a Set or by making the other team lose a Set. A Set consists of 3 stages: the 'Talab' or 'Bid' stage," Canvas.Top="197" Canvas.Left="23"/>

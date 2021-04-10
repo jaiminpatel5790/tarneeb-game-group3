@@ -9,7 +9,7 @@
         Title="OrganizedCards" Height="850" Width="1500">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="D:\Semester 4\OOP4200\Final Project\Whistle-master\Elusive.Whistle.Core\Resources\Images\Felt-Green.jpg"></ImageBrush>
+            <ImageBrush ImageSource="Resources/Felt-Green.jpg"></ImageBrush>
         </Grid.Background>
 
         <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -40,7 +40,7 @@
                    Width="160"
                    Canvas.Bottom="70"
                    Canvas.Right="-60"
-                   Source="images/blankplayingcard.png" Canvas.Left="-115" Canvas.Top="-221" 
+                   Source="images/blankplayingcard.png" Canvas.Left="-104" Canvas.Top="-218" 
             />
             <Image x:Name="imgPlayer4Played" AllowDrop="True" 
                    HorizontalAlignment="Right"
@@ -61,7 +61,7 @@
         <Canvas>
 
             <ComboBox Name="bidSelector" Height="30" Width="150"
-                      Canvas.Top="577" Canvas.Left="461"
+                      Canvas.Top="344" Canvas.Left="400"
                       IsEnabled="False">
                 <ComboBoxItem Content="4"/>
                 <ComboBoxItem Content="5"/>
@@ -74,8 +74,8 @@
 
             </ComboBox>
             <ComboBox Name="suitSelector" Height="30" Width="150"
-                      Canvas.Top="577" Canvas.Left="257"
-                      IsEnabled="False">
+                      Canvas.Top="344" Canvas.Left="212"
+                      IsEnabled="False" >
                 <ComboBoxItem Content="Spades"/>
                 <ComboBoxItem Content="Heart"/>
                 <ComboBoxItem Content="Club"/>
@@ -124,17 +124,17 @@
             </Button>
             <Button Background="silver" 
                     Width="150" 
-                    Height="150"
+                    Height="46"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Canvas.Left="290"
-                    Canvas.Top="300"
+                    Canvas.Left="37"
+                    Canvas.Top="12"
                     FontSize="20"
                     FontFamily="Times New Roman bold" 
                     x:Name="btntomenu"
                     Click="Btntomenu_OnClick"  >
                 <StackPanel>
-                    <Image Source="D:\Semester 4\OOP4200\Final Project\Tarneeb_GUI\images\back.png" Stretch="Fill" Height="86" />
+
                     <TextBlock>Back to menu</TextBlock>
                 </StackPanel>
 
@@ -212,7 +212,7 @@
                    FontSize="20"
                    FontWeight="Bold" 
                    Canvas.Right="1150"
-                   Canvas.Top="83" Canvas.Left="147">
+                   Canvas.Top="134" Canvas.Left="168">
                 Player 3 Bid
             </Label>
             <TextBox
@@ -220,11 +220,11 @@
                 Width="40"
                 Height="40"
                 Name="txtplayer3bid"
-                Canvas.Top="80"
+                Canvas.Top="134"
                 Canvas.Right="1321" Canvas.Bottom="699" 
                 FontSize="20"
                 FontFamily="Times New Roman bold" 
-                FontWeight="Bold" Canvas.Left="274" 
+                FontWeight="Bold" Canvas.Left="295" 
             >
 
             </TextBox>

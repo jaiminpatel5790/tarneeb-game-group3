@@ -142,6 +142,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\Felt-Green.jpg" />
+    <Resource Include="Resources\Felt-Blue.jpg" />
+    <Resource Include="Resources\Felt-Red.jpg" />
     <Resource Include="images\cards\back.bmp" />
     <Resource Include="images\blankplayingcard.png" />
     <Resource Include="images\cards\club1.png" />

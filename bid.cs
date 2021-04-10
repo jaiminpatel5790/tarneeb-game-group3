@@ -91,40 +91,24 @@ namespace Tarneeb_Game_group3
             int sum2 = 0;
             for (int i = 0; i < listOfBids.Count -1; i++)
             {
-               
-                if (listOfBids[i].Tricks > listOfBids[i + 1].Tricks)
-                {
-                        highest = listOfBids[i];
-                }
-                else 
-                {
-                        highest = listOfBids[i + 1];
-                }
+                highest = listOfBids[i].Tricks > listOfBids[i + 1].Tricks ? listOfBids[i] : listOfBids[i + 1];
                 if (listOfBids[i].Tricks == listOfBids[i + 1].Tricks) 
                 { 
                     for (int j = 1; j < listOfBids[i].Tricks; j++)
                     {
 
-                        sum1 = (int)(listOfBids[i].Player.playersCards[j].CardNumber + (int)listOfBids[i].Player.playersCards[j + 1].CardNumber);
+                        sum1 += (int)(listOfBids[i].Player.playersCards[j].CardNumber + (int)listOfBids[i].Player.playersCards[j + 1].CardNumber);
                     }
 
                     for (int k = 1; k < listOfBids[i + 1].Tricks; k++)
                     {
 
-                        sum2 = (int)(listOfBids[i + 1].Player.playersCards[k].CardNumber + (int)listOfBids[i + 1].Player.playersCards[k + 1].CardNumber);
+                        sum2 += (int)(listOfBids[i + 1].Player.playersCards[k].CardNumber + (int)listOfBids[i + 1].Player.playersCards[k + 1].CardNumber);
                     }
 
 
-                    if (sum1 > sum2)
-                    {
-                        highest = listOfBids[i];
-                    }
-                    else
-                    {
-                        highest = listOfBids[i + 1];
-                    }
+                    highest = sum1 > sum2 ? listOfBids[i] : listOfBids[i + 1];
                 }
-
             }
             return highest;
         }
@@ -133,15 +117,7 @@ namespace Tarneeb_Game_group3
        {
            Bid bid1 = new Bid();
            
-            if (randomPlayer.playersCards[0].Suit != randomPlayer.playersCards[1].Suit)
-            {
-               bid1 = CreatePassBid(randomPlayer);
-                
-            }
-            else
-            {
-               bid1 = CreateBid(randomPlayer);
-            }
+            bid1 = randomPlayer.playersCards[0].Suit != randomPlayer.playersCards[1].Suit ? CreatePassBid(randomPlayer) : CreateBid(randomPlayer);
 
             return bid1;
        }
@@ -161,14 +137,7 @@ namespace Tarneeb_Game_group3
                sum2 = (int)(listOfCards2[i].CardNumber + (int)listOfCards2[i + 1].CardNumber);
            }
 
-           if (sum1 > sum2)
-           {
-               return sum1;
-           }
-           else
-           {
-               return sum2;
-           }
+           return sum1 > sum2 ? sum1 : sum2;
 
        }
 
