@@ -23,6 +23,39 @@ namespace CardDisplayTake3
     /// </summary>
     public partial class OrganizedCards : Window
     {
+        public void EnableCards()
+        {
+            card1.IsEnabled = true;
+            card2.IsEnabled = true;
+            card3.IsEnabled = true;
+            card4.IsEnabled = true;
+            card5.IsEnabled = true;
+            card6.IsEnabled = true;
+            card7.IsEnabled = true;
+            card8.IsEnabled = true;
+            card9.IsEnabled = true;
+            card10.IsEnabled = true;
+            card11.IsEnabled = true;
+            card12.IsEnabled = true;
+            card13.IsEnabled = true;
+        }
+
+        public void DisableCards()
+        {
+            card1.IsEnabled = false;
+            card2.IsEnabled = false;
+            card3.IsEnabled = false;
+            card4.IsEnabled = false;
+            card5.IsEnabled = false;
+            card6.IsEnabled = false;
+            card7.IsEnabled = false;
+            card8.IsEnabled = false;
+            card9.IsEnabled = false;
+            card10.IsEnabled = false;
+            card11.IsEnabled = false;
+            card12.IsEnabled = false;
+            card13.IsEnabled = false;
+        }
         public OrganizedCards()
         {
             InitializeComponent();
@@ -361,7 +394,7 @@ namespace CardDisplayTake3
             Card newCard = new Card();
             newCard.setTrump((Enums.Suit) Highestbidder.Suit);
 
-            while (FirstTeam.score != 42 || SecondTeam.score != 42)
+            while (FirstTeam.score != 42 && SecondTeam.score != 42)
             {
                 List<Card> listOfCards = new List<Card>();
 
@@ -372,19 +405,7 @@ namespace CardDisplayTake3
                 Player startingPlayer = Highestbidder.Player;
 
 
-                card1.IsEnabled = true;
-                card2.IsEnabled = true;
-                card3.IsEnabled = true;
-                card4.IsEnabled = true;
-                card5.IsEnabled = true;
-                card6.IsEnabled = true;
-                card7.IsEnabled = true;
-                card8.IsEnabled = true;
-                card9.IsEnabled = true;
-                card10.IsEnabled = true;
-                card11.IsEnabled = true;
-                card12.IsEnabled = true;
-                card13.IsEnabled = true;
+                
 
                 //Card player1Card = putCard(Highestbidder.Player, newCard.Trump, currentSuit, currentCardNumber);
                 Card player1Card = null;
@@ -400,6 +421,8 @@ namespace CardDisplayTake3
                 if (Highestbidder.Player == player1)
                 {
                     //Player 1 plays card
+                    EnableCards();
+                    
                     player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
                     currentSuit = player1Card.Suit;
                     currentCardNumber = player1Card.CardNumber;
@@ -423,6 +446,7 @@ namespace CardDisplayTake3
                     currentPlayer = player2;
 
                     imgPlayer2Played.Source = player2Card.cardImage;
+                    
 
                     //Player 3 plays card
                     player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
@@ -570,12 +594,12 @@ namespace CardDisplayTake3
 
             if(FirstTeam.score == 42)
             {
-                lblroundwinners.Content = "This game has been won by first team!";
+                lblroundwinners.Content += "This game has been won by first team!";
             }
 
             if (SecondTeam.score == 42)
             {
-                lblroundwinners.Content = "This game has been won by second team!";
+                lblroundwinners.Content += "This game has been won by second team!";
             }
 
 

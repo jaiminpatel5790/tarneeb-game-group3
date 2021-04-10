@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CardDisplayTake3"
         mc:Ignorable="d"
-        
-        Title="OrganizedCards" Height="1000" Width="1500">
+        WindowState="Maximized"
+        Title="OrganizedCards" Height="850" Width="1500">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="D:\Semester 4\OOP4200\Final Project\Whistle-master\Elusive.Whistle.Core\Resources\Images\Felt-Green.jpg"></ImageBrush>
@@ -40,7 +40,7 @@
                    Width="160"
                    Canvas.Bottom="70"
                    Canvas.Right="-60"
-                   Source="images/blankplayingcard.png" 
+                   Source="images/blankplayingcard.png" Canvas.Left="-115" Canvas.Top="-221" 
             />
             <Image x:Name="imgPlayer4Played" AllowDrop="True" 
                    HorizontalAlignment="Right"
@@ -86,24 +86,24 @@
             <Label
                 Background="Aqua"
                 Name="lblHighestBid"
-                Height="33"
-                Width="280"
+                Height="29"
+                Width="339"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" 
                 Canvas.Left="938"
-                Canvas.Top="335"
+                Canvas.Top="257"
                 FontWeight="Bold"
                 FontSize="15"
             ></Label>
             <Label
                 Background="Aqua"
                 Name="lblroundwinners"
-                Height="128"
-                Width="280"
+                Height="252"
+                Width="339"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center" 
                 Canvas.Left="938"
-                Canvas.Top="400"
+                Canvas.Top="300"
                 FontWeight="Bold"
                 FontSize="15"
                 ></Label>
@@ -141,9 +141,9 @@
             </Button>
             <Button Background="purple"
                     Width="150" 
-                    Height="64"
+                    Height="49"
                     Canvas.Right="290"
-                    Canvas.Top="200"
+                    Canvas.Top="10"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                     FontSize="25"
@@ -191,8 +191,8 @@
             <Label Background="Beige" 
                    FontSize="20"
                    FontWeight="Bold" 
-                   Canvas.Left="1319"
-                   Canvas.Top="80">
+                   Canvas.Left="1315"
+                   Canvas.Top="137">
                 Player 2 Bid
             </Label>
             <TextBox
@@ -200,8 +200,8 @@
                 Width="40"
                 Height="40"
                 Name="txtplayer2bid"
-                Canvas.Top="80"
-                Canvas.Left="1274" Canvas.Bottom="699" 
+                Canvas.Top="134"
+                Canvas.Left="1270" Canvas.Bottom="699" 
                 FontSize="20"
                 FontFamily="Times New Roman bold" 
                 FontWeight="Bold" 
@@ -248,7 +248,7 @@
             >
 
             </TextBox>
-            <ListView Canvas.Bottom="10" Canvas.Left="400" >
+            <ListView Canvas.Bottom="10" Canvas.Left="400" Name="lstplayer1">
 
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>

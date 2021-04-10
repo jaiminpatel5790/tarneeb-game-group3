@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using CardDisplayTake3;
 using Cards;
 
 namespace Tarneeb_Game_group3
@@ -17,14 +18,14 @@ namespace Tarneeb_Game_group3
         public static Bid CreateBid(Player player)
         {
             int tricks = 0;
-           char suit =(char) player.playersCards[0].Suit;
+           char suit = (char) player.playersCards[0].Suit;
             if (player.playersCards[3].Suit == player.playersCards[4].Suit)
             {
                 if (player.playersCards[4].Suit == player.playersCards[5].Suit)
                 {
                     if (player.playersCards[5].Suit == player.playersCards[6].Suit)
                     {
-                        tricks = 7;
+                        tricks = player.playersCards[6].Suit == player.playersCards[8].Suit ? 8 : 7;
                     }
                     else
                     {
@@ -63,54 +64,24 @@ namespace Tarneeb_Game_group3
             return bid;
         }
 
-        //public override string ToString()
+       
+
+        //public int CompareTo(Bid other)
         //{
-        //    if(IsPass)
+        //    if (this.Tricks != other.Tricks)
         //    {
-        //        return Player.ToString() + " - Pass.";
+        //        return this.Tricks.CompareTo(other.Tricks);
         //    }
         //    else
         //    {
-        //        string suitString =
-        //            (Suit == (int) Enums.Suit.None) ? "No Trump" : Suit.ToString();
-        //        return Player.ToString() + " " + Tricks + " " + suitString;
+        //        int thisSuitOrder = 4 - (int) this.Suit;
+        //        int otherSuitOrder = 4 - (int) other.Suit;
+
+        //        return thisSuitOrder.CompareTo(otherSuitOrder);
         //    }
         //}
 
-        public int CompareTo(Bid other)
-        {
-            if (this.Tricks != other.Tricks)
-            {
-                return this.Tricks.CompareTo(other.Tricks);
-            }
-            else
-            {
-                int thisSuitOrder = 4 - (int) this.Suit;
-                int otherSuitOrder = 4 - (int) other.Suit;
-
-                return thisSuitOrder.CompareTo(otherSuitOrder);
-            }
-        }
-
-        //public int MakeBid(List<Card> listOfCards)
-        //{
-        //    if (listOfCards[3].Suit == listOfCards[4].Suit)
-        //    {
-        //        if (listOfCards[4].Suit == listOfCards[5].Suit)
-        //        {
-        //            return 6;
-        //        }
-        //        else
-        //        {
-        //            return 5;
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        return 4;
-        //    }
-        //}
+      
 
         
         public Bid HigherBid(List<Bid> listOfBids)
@@ -120,11 +91,31 @@ namespace Tarneeb_Game_group3
             int sum2 = 0;
             for (int i = 0; i < listOfBids.Count -1; i++)
             {
-
                
-                
-                
-                    if (listOfBids[i].Tricks > listOfBids[i + 1].Tricks)
+                if (listOfBids[i].Tricks > listOfBids[i + 1].Tricks)
+                {
+                        highest = listOfBids[i];
+                }
+                else 
+                {
+                        highest = listOfBids[i + 1];
+                }
+                if (listOfBids[i].Tricks == listOfBids[i + 1].Tricks) 
+                { 
+                    for (int j = 1; j < listOfBids[i].Tricks; j++)
+                    {
+
+                        sum1 = (int)(listOfBids[i].Player.playersCards[j].CardNumber + (int)listOfBids[i].Player.playersCards[j + 1].CardNumber);
+                    }
+
+                    for (int k = 1; k < listOfBids[i + 1].Tricks; k++)
+                    {
+
+                        sum2 = (int)(listOfBids[i + 1].Player.playersCards[k].CardNumber + (int)listOfBids[i + 1].Player.playersCards[k + 1].CardNumber);
+                    }
+
+
+                    if (sum1 > sum2)
                     {
                         highest = listOfBids[i];
                     }
@@ -132,30 +123,7 @@ namespace Tarneeb_Game_group3
                     {
                         highest = listOfBids[i + 1];
                     }
-                    if (listOfBids[i].Tricks == listOfBids[i + 1].Tricks)
-                    {
-                        for (int j = 1; j < listOfBids[i].Tricks; j++)
-                        {
-
-                            sum1 = (int)(listOfBids[i].Player.playersCards[j].CardNumber + (int)listOfBids[i].Player.playersCards[j + 1].CardNumber);
-                        }
-
-                        for (int k = 1; k < listOfBids[i + 1].Tricks; k++)
-                        {
-
-                            sum2 = (int)(listOfBids[i + 1].Player.playersCards[k].CardNumber + (int)listOfBids[i + 1].Player.playersCards[k + 1].CardNumber);
-                        }
-
-
-                        if (sum1 > sum2)
-                        {
-                            highest = listOfBids[i];
-                        }
-                        else
-                        {
-                            highest = listOfBids[i + 1];
-                        }
-                    }
+                }
 
             }
             return highest;
@@ -210,10 +178,9 @@ namespace Tarneeb_Game_group3
             int SelectedIndex = number.Next(0, 3);
             Console.WriteLine(SelectedIndex);
             Player randomPlayer = listOfPlayer[SelectedIndex];
-            ////Testing
-            //Console.WriteLine("Random player " + randomPlayer);
+          
             List<Bid> bidders = new List<Bid>();
-            //Bid player1Bid = new Bid();
+         
             Bid player2Bid = new Bid();
             Bid player3Bid = new Bid();
             Bid player4Bid = new Bid();
@@ -222,9 +189,6 @@ namespace Tarneeb_Game_group3
 
             if (SelectedIndex == 0)
             {
-                //player1
-                //player1Bid = FindBid(randomPlayer);
-                //SelectedIndex = 1;
                 //player2
                 randomPlayer = listOfPlayer[SelectedIndex];
                 player2Bid = FindBid(randomPlayer);
@@ -257,10 +221,7 @@ namespace Tarneeb_Game_group3
                 SelectedIndex = 0;
                
                
-                //player1
-                //randomPlayer = listOfPlayer[SelectedIndex];
-                //player1Bid = FindBid(randomPlayer);
-                //SelectedIndex = 1;
+              
             }
 
             if (SelectedIndex == 2)
@@ -278,33 +239,12 @@ namespace Tarneeb_Game_group3
                 player3Bid = FindBid(randomPlayer);
                 SelectedIndex = 3;
                
-                //player1
-                //randomPlayer = listOfPlayer[SelectedIndex];
-                //player1Bid = FindBid(randomPlayer);
-                //SelectedIndex = 1;
+               
                
 
             }
 
-            //if (SelectedIndex == 3)
-            //{
-            //    //player4
-            //    randomPlayer = listOfPlayer[SelectedIndex];
-            //    player4Bid = FindBid(randomPlayer);
-            //    SelectedIndex = 0;
-            //    //player1
-            //    //randomPlayer = listOfPlayer[SelectedIndex];
-            //    //player1Bid = FindBid(randomPlayer);
-            //    //SelectedIndex = 1;
-            //    //player2
-            //    randomPlayer = listOfPlayer[SelectedIndex];
-            //    player2Bid = FindBid(randomPlayer);
-            //    SelectedIndex = 2;
-            //    //player3
-            //    randomPlayer = listOfPlayer[SelectedIndex];
-            //    player3Bid = FindBid(randomPlayer);
-            //    SelectedIndex = 3;
-            //}
+          
 
             //bidders.Add(player1Bid);
             bidders.Add(player2Bid);
