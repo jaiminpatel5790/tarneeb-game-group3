@@ -79,7 +79,6 @@ D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\Instructions.g.cs
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\MainWindow.g.cs
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\Game.g.cs
-D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\MakeBidWindow.g.cs
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\App.g.cs
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\CardDisplayTake3_Content.g.cs
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\CardDisplayTake3_MarkupCompile.cache
@@ -87,7 +86,6 @@ D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\Instructions.baml
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\MainWindow.baml
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\Game.baml
-D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\MakeBidWindow.baml
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\CardDisplayTake3.g.resources
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\CardDisplayTake3.Properties.Resources.resources
 D:\Semester 4\OOP4200\Final Project\Final_Tarneeb\tarneeb-game-group3\obj\Debug\CardDisplayTake3.csproj.GenerateResource.cache

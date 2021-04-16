@@ -10,9 +10,16 @@ using System.Data.SqlClient;
 
 namespace CardDisplayTake3
 {
-    //public static class
+    /// <summary>
+    /// This class is just for getting the image path
+    /// </summary>
     public static class Helper
     {
+        /// <summary>
+        /// This method will get the img object from the path specified
+        /// </summary>
+        /// <param name="path">is the path of the image </param>
+        /// <returns> the image object</returns>
         public static BitmapImage GetImage(string path)
         {
 

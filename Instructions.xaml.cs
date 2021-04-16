@@ -24,6 +24,11 @@ namespace CardDisplayTake3
             InitializeComponent();
         }
 
+        /// <summary>
+        /// This even will bring us back to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnBack_OnClick(object sender, RoutedEventArgs e)
         {
             MainWindow menu = new MainWindow();

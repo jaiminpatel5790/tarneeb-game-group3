@@ -25,6 +25,9 @@ namespace CardDisplayTake3
     /// </summary>
     public partial class OrganizedCards : Window
     {
+        /// <summary>
+        /// Method for enabling cards to be put for player1
+        /// </summary>
         public void EnableCards()
         {
             card1.IsEnabled = true;
@@ -42,6 +45,9 @@ namespace CardDisplayTake3
             card13.IsEnabled = true;
         }
 
+        /// <summary>
+        /// Disabling the cards to be put for player1
+        /// </summary>
         public void DisableCards()
         {
             card1.IsEnabled = false;
@@ -63,95 +69,113 @@ namespace CardDisplayTake3
             InitializeComponent();
         }
 
-        private static String player1Name;
-        private static List<Card> player1Cards;
-
-        private static String player2Name;
-        private static List<Card> player2Cards;
-
-        private static String player3Name;
-        private static List<Card> player3Cards;
-
-        private static String player4Name;
-        private static List<Card> player4Cards;
-
-
+        //Defining player 1 object
         private static Player player1;
+
+        //Defining player 2 object
         private static Player player2;
+
+        //Defining player 3 object
         private static Player player3;
+
+        //Defining player 4 object
         private static Player player4;
 
 
 
-
+        // Defining first team object
         private static Team FirstTeam;
+
+        // Defining second team object
         private static Team SecondTeam;
 
+
+        // Making a new deck
         private static Deck deck = new Deck();
 
       
-
+        // Defining a new list of cards for player 1 deck
         private static  List<Card> playerdeck;
+
+        // Defining a new list of cards for player 2 deck
         private static  List<Card> playerdeck2;
+
+        // Defining a new list of cards for player 3 deck
         private static List<Card> playerdeck3;
+
+        // Defining a new list of cards for player 4 deck
         private static  List<Card> playerdeck4;
 
+        // A variable for storing player 1 tricks 
         private int player1tricks = 1;
 
+        // Bid object for storing a highest bid
         private Bid Highestbidder = null;
+
+        // Defining a new card object
         Card newCard = new Card();
+
+        // Defining player 1 suit to none
         Enums.Suit player1suit = Enums.Suit.None;
 
+        //A flag for making next player go
         private bool goPlayer = false;
 
-        //List<Card> playerdeck2 = deck.Sort(deck.TakeCards(13));
-        //List<Card> playerdeck3 = deck.Sort(deck.TakeCards(13));
-        //List<Card> playerdeck4 = deck.Sort(deck.TakeCards(13));
-
+         /// <summary>
+         /// This button click event will alow the cards to be distributed to each player and showing human player deck.
+         /// </summary>
+         /// <param name="sender"> sender is the parameter for checking the </param>
+         /// <param name="e"> is the event that is happening</param>
         private void bGetCards_Click(object sender, RoutedEventArgs e)
         {
             EnableCards();
             deck.Shuffle();
 
-
+            // Sorting and distributing cards to the players
             playerdeck = deck.Sort(deck.TakeCards(13));
             playerdeck2 = deck.Sort(deck.TakeCards(13));
             playerdeck3 = deck.Sort(deck.TakeCards(13));
             playerdeck4 = deck.Sort(deck.TakeCards(13));
 
+            // Assigning each deck to each player
             player1 = new Player("PLayer 1", playerdeck);
             player2 = new Player("Player 2", playerdeck2);
             player3 = new Player("Player 3", playerdeck3);
             player4 = new Player("Player 4", playerdeck4);
             
+            // Making teams with 2 player each
              FirstTeam = new Team(player1, player3);
              SecondTeam = new Team(player2, player4);
 
-
+            // Running for each loop for geting the card image path for each card in the deck
             foreach (Card card in playerdeck)
             {
                 card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
 
             }
 
+            // Running for each loop for geting the card image path for each card in the deck
             foreach (Card card in playerdeck2)
             {
                 card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
 
             }
 
+            // Running for each loop for geting the card image path for each card in the deck
             foreach (Card card in playerdeck3)
             {
                 card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
 
             }
 
+            // Running for each loop for geting the card image path for each card in the deck
             foreach (Card card in playerdeck4)
             {
                 card.cardImage = card.GetCardImagePath(card.Suit, card.CardNumber, false);
 
             }
 
+            // Setting up card image for our deck
             card1.Source = playerdeck[0].cardImage;
             card2.Source = playerdeck[1].cardImage;
             card3.Source = playerdeck[2].cardImage;
@@ -166,11 +190,11 @@ namespace CardDisplayTake3
             card12.Source = playerdeck[11].cardImage;
             card13.Source = playerdeck[12].cardImage;
 
-
+            
             bGetCards.IsEnabled = false;
-            //bidSelector.IsEnabled = true;
+           
             suitSelector.IsEnabled = true;
-            //btnOkay.IsEnabled = true;
+           
 
             MyPopup.IsOpen = true;
            
@@ -178,6 +202,11 @@ namespace CardDisplayTake3
 
         #region GettingImagesEventHandlers
 
+        /// <summary>
+        /// Drop event for player 1 image area
+        /// </summary>
+        /// <param name="sender"> parameter to tally the objec for that event</param>
+        /// <param name="e">e is the event data</param>
         private void imgPlayer1Played_Drop(object sender, DragEventArgs e)
         {
 
@@ -234,6 +263,11 @@ namespace CardDisplayTake3
             // Helper.InsertEvent("Card Played");
         }
 
+        /// <summary>
+        /// An event for dragging card 1 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -244,6 +278,11 @@ namespace CardDisplayTake3
 
         }
 
+        /// <summary>
+        /// An event for dragging card 2 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -254,6 +293,11 @@ namespace CardDisplayTake3
             card2.Source = Helper.GetImage("/images/blankplayingcard.png");
 
         }
+        /// <summary>
+        /// An event for dragging card 3 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card3_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -263,6 +307,11 @@ namespace CardDisplayTake3
             card3.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+        /// <summary>
+        /// An event for dragging card 4 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card4_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -272,6 +321,11 @@ namespace CardDisplayTake3
             card4.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+        /// <summary>
+        /// An event for dragging card 5 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card5_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -281,6 +335,11 @@ namespace CardDisplayTake3
             card5.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+        /// <summary>
+        /// An event for dragging card 6 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card6_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -290,6 +349,12 @@ namespace CardDisplayTake3
             card6.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+
+        /// <summary>
+        /// An event for dragging card 7 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card7_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -299,6 +364,12 @@ namespace CardDisplayTake3
             card7.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+
+        /// <summary>
+        /// An event for dragging card 8 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card8_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -308,6 +379,12 @@ namespace CardDisplayTake3
             card8.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+
+        /// <summary>
+        /// An event for dragging card 9 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card9_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -317,6 +394,12 @@ namespace CardDisplayTake3
             card9.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+
+        /// <summary>
+        /// An event for dragging card 10 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -326,6 +409,12 @@ namespace CardDisplayTake3
             card10.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+
+        /// <summary>
+        /// An event for dragging card 11 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card11_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -335,6 +424,12 @@ namespace CardDisplayTake3
             card11.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+
+        /// <summary>
+        /// An event for dragging card 12 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card12_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -344,6 +439,11 @@ namespace CardDisplayTake3
             card12.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
+        /// <summary>
+        /// An event for dragging card 13 from player's deck
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void card13_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Image img = e.Source as Image;
@@ -353,36 +453,16 @@ namespace CardDisplayTake3
             card13.Source = Helper.GetImage("/images/blankplayingcard.png");
         }
 
-        //private void imgPlayer2Played_Drop(object sender, DragEventArgs e)
-        //{
-        //    Image img = e.Source as Image;
-        //    img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
-        //  //  Helper.InsertEvent("Card Played");
-        //}
-
-        //private void imgPlayer3Played_Drop(object sender, DragEventArgs e)
-        //{
-        //    Image img = e.Source as Image;
-        //    img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
-        //    //Helper.InsertEvent("Card Played");
-        //}
-
-        //private void imgPlayer4Played_Drop(object sender, DragEventArgs e)
-        //{
-        //    Image img = e.Source as Image;
-        //    img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
-        //    // Helper.InsertEvent("Card Played");
-        //}
 
 
         #endregion
 
 
         /// <summary>
-        /// 
+        /// Will bring back to menu 
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void Btntomenu_OnClick(object sender, RoutedEventArgs e)
         {
             MainWindow back = new MainWindow();
@@ -390,18 +470,29 @@ namespace CardDisplayTake3
             back.Show();
         }
 
+        /// <summary>
+        /// Will exit the game
+        /// </summary>
+        /// <param name="sender"> Is the object for checking the events</param>
+        /// <param name="e"> e is the mouse button event</param>
         private void Bexit_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
 
+        /// <summary>
+        /// is the event that will be shot when okay id clicked from the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnOKay_OnClick(object sender, RoutedEventArgs e)
         {
+
             MyPopup.IsOpen = false;
-            //txtbiddingNumber.Text = bidSelector.Text;
+           
             
-           // bidSelector.IsEnabled = false;
+           
             txtbiddingNumber.IsEnabled = false;
             suitSelector.IsEnabled = true;
             player1tricks = Convert.ToInt32(pop1selector.Text);
@@ -416,9 +507,7 @@ namespace CardDisplayTake3
 
             newBid = bid.GoNext(playerList);
 
-           
-
-
+           //Displaying tricks for each player
             txtplayer2bid.Text = newBid[0].Tricks.ToString();
             txtplayer3bid.Text = newBid[1].Tricks.ToString();
             txtplayer4bid.Text = newBid[2].Tricks.ToString();
@@ -427,48 +516,18 @@ namespace CardDisplayTake3
             txtplayer3bid.IsEnabled = false;
             txtplayer4bid.IsEnabled = false;
 
-            //int ourbid = Convert.ToInt32(bidSelector.Text);
-            //char oursuit = 'H';
-            //if (suitSelector.Text == "Spades")
-            //{
-            //    oursuit = 'S';
-            //}
-            //if (suitSelector.Text == "Heart")
-            //{
-            //    oursuit = 'H';
-            //}
-            //if (suitSelector.Text == "Club")
-            //{
-            //    oursuit = 'C';
-            //}
-            //if (suitSelector.Text == "Diamond")
-            //{
-            //    oursuit = 'D';
-            //}
-            //// char oursuit = Convert.ToChar(suitSelector.Text);
-
-            //Bid player1Bid = new Bid()
-            //{
-            //    IsPass = false,
-            //    Player = player1,
-            //    Tricks = ourbid,
-            //    Suit = oursuit
-
-            //};
             
-
-           // newBid.Insert(0, player1Bid);
-
-           // Console.WriteLine(newBid[0]);
-
+            // Checking highest bid
             Highestbidder = bid.HigherBid(newBid);
             
+            //If the tricks from 3 players is higher than player 1 
             if (Highestbidder.Tricks > player1tricks)
             {
                 MyPopup.IsOpen = false;
                 newCard.setTrump((Enums.Suit)Highestbidder.Suit);
                 lblHighestBid.Content = "Tarneeb suit is " + newCard.Trump + " of " + Highestbidder.Player;
 
+                // Running until any of the team reaches 42 score
                 while (FirstTeam.score != 42 && SecondTeam.score != 42)
                 {
                     List<Card> listOfCards = new List<Card>();
@@ -478,68 +537,15 @@ namespace CardDisplayTake3
                     Player currentPlayer = null;
 
                     Player startingPlayer = Highestbidder.Player;
-
-
-
-
-                    //Card player1Card = putCard(Highestbidder.Player, newCard.Trump, currentSuit, currentCardNumber);
+                    
+                    
                     Card player1Card = null;
                     Card player2Card = null;
                     Card player3Card = null;
                     Card player4Card = null;
 
 
-                    //currentSuit = player1Card.Suit;
-                    //currentCardNumber = player1Card.CardNumber;
-                    //currentPlayer = Highestbidder.Player;
-                    //If player 1 is the highest bidder, then the order of gameplay would be player1, player2, player3, player4
-                    //if (Highestbidder.Player == player1)
-                    //{
-                    //    //Player 1 plays card
-                    //    EnableCards();
-                       
-
-                    //    //player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
-                    //    //currentSuit = player1Card.Suit;
-                    //    //currentCardNumber = player1Card.CardNumber;
-                    //    //currentPlayer = player1;
-
-                    //    //imgPlayer1Played.Source = player1Card.cardImage;
-                    //    //foreach (var card in playerdeck)
-                    //    //{
-                    //    //    if (card == player1Card)
-                    //    //    {
-                    //    //        card1.Source = Helper.GetImage("/images/blankplayingcard.png");
-                    //    //    }
-                    //    //}
-
-
-
-                    //    //Player 2 plays card
-                    //    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
-                    //    currentSuit = player2Card.Suit;
-                    //    currentCardNumber = player2Card.CardNumber;
-                    //    currentPlayer = player2;
-
-                    //    imgPlayer2Played.Source = player2Card.cardImage;
-
-
-                    //    //Player 3 plays card
-                    //    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
-                    //    currentSuit = player3Card.Suit;
-                    //    currentCardNumber = player3Card.CardNumber;
-                    //    currentPlayer = player3;
-
-                    //    imgPlayer3Played.Source = player3Card.cardImage;
-
-                    //    //Player 4 plays card.
-                    //    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
-                    //    currentSuit = player4Card.Suit;
-                    //    currentCardNumber = player4Card.CardNumber;
-                    //    currentPlayer = player4;
-
-                    //    imgPlayer4Played.Source = player4Card.cardImage;
-                    //}
+                    
                     if (Highestbidder.Player == player2)
                     {
                         //Player 2 plays card
@@ -652,6 +658,7 @@ namespace CardDisplayTake3
                     roundCards.Add(player3Card);
                     roundCards.Add(player4Card);
 
+                    // Choosing which card is the highest
                     Card WinningCard = HighestCard(roundCards, (Enums.Suit)Highestbidder.Suit);
 
                     if (WinningCard == player1Card || WinningCard == player3Card)
@@ -684,9 +691,6 @@ namespace CardDisplayTake3
                 MyPopup2.IsOpen = true;
                 btnGame.IsEnabled = true;
                 
-               
-                
-
             }
 
 

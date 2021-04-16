@@ -7,14 +7,16 @@
         mc:Ignorable="d"
         
         Title="Instructions" Height="500" Width="900">
+    <!--This is the main grid for the whole window-->
     <Grid>
 
         <Grid.Background >
             <ImageBrush ImageSource="D:\Semester 4\OOP4200\Final Project\Whistle-master\Elusive.Whistle.Core\Resources\Images\Felt-Red.jpg"></ImageBrush> </Grid.Background>
 
+        <!--This is the canvas covering whole window-->
         <Canvas>
 
-
+        <!--This button will bring us back to the main menu-->
             <Button x:Name="btnBack"
                 Canvas.Left="10"
                 Canvas.Top="10"

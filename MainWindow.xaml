@@ -10,6 +10,7 @@
         Width="1200" 
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
+    <!--This grid covers the whole window-->
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/Felt-Blue.jpg"></ImageBrush>
@@ -20,6 +21,7 @@
             <RowDefinition Height="215*"/>
             <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
+        <!--This button will tae us to the main window to play the game-->
         <Button Background="lightblue"
                 Width="300" 
                 Height="150"
@@ -33,6 +35,8 @@
 
             Start Game
         </Button>
+
+        <!--This buttin will take us to the instructions window-->
         <Button Background="beige"
                 Width="300" 
                 Height="150"
@@ -46,6 +50,8 @@
 
             Instructions
         </Button>
+
+        <!--This button will end the game and exit the window-->
         <Button Background="purple"
                 Width="300" 
                 Height="150"

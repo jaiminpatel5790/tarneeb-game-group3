@@ -7,23 +7,26 @@
         mc:Ignorable="d"
         WindowState="Maximized"
         Title="OrganizedCards" Height="850" Width="1500">
+    <!--This is the grid having all the object inside it-->
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/Felt-Green.jpg"></ImageBrush>
         </Grid.Background>
-
+        
+        <!--This canvas contains the image for dropping cards for each player-->
         <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!--Player 1 image-->
             <Image x:Name="imgPlayer1Played" AllowDrop="True" 
-               HorizontalAlignment="Center"
-               VerticalAlignment="Center"
-               Height="150" 
-               Width="160"
-               Drop="imgPlayer1Played_Drop" 
-               Canvas.Left="-80"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Height="150" 
+                   Width="160"
+                   Drop="imgPlayer1Played_Drop" 
+                   Canvas.Left="-80"
                
-               Source="images/blankplayingcard.png"/>
+                   Source="images/blankplayingcard.png"/>
 
-
+            <!--Player 2 image-->
             <Image x:Name="imgPlayer2Played" AllowDrop="True" 
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
@@ -33,6 +36,8 @@
                
                 Source="images/blankplayingcard.png" 
                />
+
+            <!--Player 3 image-->
             <Image x:Name="imgPlayer3Played" AllowDrop="True" 
                    HorizontalAlignment="Right"
                    VerticalAlignment="Center"
@@ -42,6 +47,8 @@
                    Canvas.Right="-60"
                    Source="images/blankplayingcard.png" Canvas.Left="-104" Canvas.Top="-218" 
             />
+
+            <!--Player 4 image-->
             <Image x:Name="imgPlayer4Played" AllowDrop="True" 
                    HorizontalAlignment="Right"
                    VerticalAlignment="Center"
@@ -57,12 +64,9 @@
         </Canvas>
 
 
-
+        <!--Defining a canvas for the whole window-->
         <Canvas>
-
-           
-            
-
+            <!--This label will show the highest bid by which player and the tarneeb suit-->
             <Label
                 Background="Aqua"
                 Name="lblHighestBid"
@@ -75,6 +79,8 @@
                 FontWeight="Bold"
                 FontSize="15"
             ></Label>
+
+            <!--This will show the tally for each round-->
             <Label
                 Background="Aqua"
                 Name="lblroundwinners"
@@ -87,10 +93,9 @@
                 FontWeight="Bold"
                 FontSize="15"
                 ></Label>
-           
-            <Popup Name="MyPopup2"
 
-                   
+            <!--This pop up is for the human player to select their suit, this will be diaplyed when theu win the bid -->
+            <Popup Name="MyPopup2"
 
                    Placement="Center"
 
@@ -102,8 +107,9 @@
 
                 <Grid Height="203" Background="Azure" Width="222">
 
+                    <Label HorizontalAlignment="Center" FontSize="20" FontWeight="Black">Select your Suit</Label>
+                    <!--A combo box showing suits from which you can select-->
                     <ComboBox Name="suitSelector" Height="30" Width="150"
-                              Canvas.Top="344" Canvas.Left="212"
                               IsEnabled="True" >
                         <ComboBoxItem Content="Spade"/>
                         <ComboBoxItem Content="Heart"/>
@@ -112,19 +118,16 @@
 
                     </ComboBox>
 
-                    
+                    <!--Button for going back to game-->
                     <Button Background="White"
                             Width="120"
-                            Height="30"  
-                            VerticalAlignment="Center"
+                            Height="30" 
                             HorizontalAlignment="Center"
-                            Canvas.Left="909"
-                            Canvas.Top="557" 
                             FontSize="20"
                             FontFamily="Times New Roman bold" 
                             IsEnabled="True"
                             Name="btnGame"
-                            Click="BtnGame_OnClick" Margin="60,136,42,37">
+                            Click="BtnGame_OnClick" Margin="50,150,50,20" >
 
                         Back to game
                     </Button>
@@ -132,9 +135,9 @@
                     
 
                 </Grid>
-
             </Popup>
 
+            <!--Pop up for selecting the bid for the player-->
             <Popup Name="MyPopup"
 
                    
@@ -147,10 +150,12 @@
 
                    AllowsTransparency="False">
 
+                <!--Grid for showing the combobox and button -->
                 <Grid Height="203" Background="Azure" Width="222">
-
+                    <Label HorizontalAlignment="Center" FontSize="20" FontWeight="Black">Select your Tricks</Label>
+                <!--Combobox containing bid -->
                     <ComboBox Name="pop1selector" Height="30" Width="150"
-                              Canvas.Top="344" Canvas.Left="400"
+                              
                               IsEnabled="True" Margin="10,27,-8,79">
                         <ComboBoxItem Content="4"/>
                         <ComboBoxItem Content="5"/>
@@ -163,6 +168,7 @@
 
                     </ComboBox>
 
+                <!--Button to go check the highest tricks to the main window-->
                     <Button Background="White"
                             Width="120"
                             Height="30"  
@@ -178,12 +184,10 @@
 
                         Okay
                     </Button>
-
-
-
                 </Grid>
-
             </Popup>
+
+            <!--Button for going back to menu-->
             <Button Background="silver" 
                     Width="150" 
                     Height="46"
@@ -201,6 +205,8 @@
                 </StackPanel>
 
             </Button>
+
+            <!--Button for ending the game-->
             <Button Background="purple"
                     Width="150" 
                     Height="49"
@@ -215,6 +221,8 @@
 
                 End Game
             </Button>
+
+            <!--Button to get the cards for each player-->
             <Button Background="silver" 
                 Width="150" 
                 Height="50"
@@ -230,6 +238,8 @@
 
                 Distribute Cards
             </Button>
+
+            <!--Label and textbox showing the player and the tricks they bid-->
             <Label Background="Beige" 
                    FontSize="20" 
                    FontWeight="Bold" 
@@ -250,6 +260,8 @@
                 >
 
             </TextBox>
+
+            <!--Label and textbox showing the player and the tricks they bid-->
             <Label Background="Beige" 
                    FontSize="20"
                    FontWeight="Bold" 
@@ -270,6 +282,8 @@
             >
 
             </TextBox>
+
+            <!--Label and textbox showing the player and the tricks they bid-->
             <Label Background="Beige" 
                    FontSize="20"
                    FontWeight="Bold" 
@@ -290,6 +304,8 @@
             >
 
             </TextBox>
+
+            <!--Label and textbox showing the player and the tricks they bid-->
             <Label Background="Beige" 
                    FontSize="20"
                    FontWeight="Bold" 
@@ -310,6 +326,9 @@
             >
 
             </TextBox>
+
+
+            <!--This list view contains the player 1 cards deck. It has all the images for that players cards-->
             <ListView Canvas.Bottom="10" Canvas.Left="400" Name="lstplayer1">
 
                 <ListView.ItemsPanel>
@@ -411,6 +430,7 @@
             </ListView>
 
 
+            <!--This list view contains the player 2 cards deck. It has all the images for that players cards, but we will not be able to see it-->
             <ListView Canvas.Top="200" Canvas.Right="20">
 
                 <ListView.ItemsPanel>
@@ -511,6 +531,8 @@
 
             </ListView>
 
+
+            <!--This list view contains the player 3 cards deck. It has all the images for that players cards, but we will not be able to see it-->
             <ListView  Canvas.Top="200" Canvas.Left="20" >
 
                 <ListView.ItemsPanel>
@@ -611,6 +633,8 @@
 
             </ListView>
 
+
+            <!--This list view contains the player 4 cards deck. It has all the images for that players cards, but we will not be able to see it-->
             <ListView Canvas.Top="10" Canvas.Left="400" >
 
                 <ListView.ItemsPanel>
@@ -709,8 +733,6 @@
 
 
             </ListView>
-
-
 
         </Canvas>
 

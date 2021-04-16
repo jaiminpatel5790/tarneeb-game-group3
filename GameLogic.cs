@@ -8,12 +8,20 @@ using Tarneeb_Game_group3;
 
 namespace CardDisplayTake3
 {
+    /// <summary>
+    /// This class is for computer logic
+    /// </summary>
     class GameLogic
     {
-        //public static Card HumanCard(Enums.Suit tarneebSuit)
-        //{
-
-        //}
+       
+        /// <summary>
+        /// A function to put the card 
+        /// </summary>
+        /// <param name="player"> the player who will be putting the card</param>
+        /// <param name="tarneebTrump"> is the tareeb suit for that game</param>
+        /// <param name="suit"> is the suit that was put by previous player</param>
+        /// <param name="cardNumber"> is the card number put by that player</param>
+        /// <returns></returns>
         public static Card putCard(Player player, Enums.Suit tarneebTrump, Enums.Suit suit, Enums.CardNumber cardNumber)
         {
             Card gamingCard = new Card();
@@ -24,11 +32,10 @@ namespace CardDisplayTake3
 
             if ((cardNumber == 0) && (suit == Enums.Suit.None))
             {
-                //if (gamingCard == null)
-                //{
+                
                 gamingCard = player.playersCards[0];
                 player.playersCards.Remove(player.playersCards[0]);
-                //}
+               
 
             }
             else
@@ -47,10 +54,10 @@ namespace CardDisplayTake3
 
                         }
                         else
-                        {
+                        { 
                             int card_num = (int)card.CardNumber;
                             lowerCards.Add(card_num);
-                            // player.playersCards.Remove(card);
+                            
                         }
 
                     }
@@ -80,7 +87,7 @@ namespace CardDisplayTake3
                     }
                     catch (Exception e)
                     {
-                        // ignored
+                       Console.WriteLine(e);
                     }
                 }
 
@@ -89,12 +96,18 @@ namespace CardDisplayTake3
             return gamingCard;
         }
 
-        public static Card HighestCard(List<Card> listofCards, Enums.Suit tarneebSuit)
+        /// <summary>
+        /// Checking highest card from the list of cards that are put by thr player
+        /// </summary>
+        /// <param name="listOfCards">Is the list which will be containing all the cads object</param>
+        /// <param name="tarneebSuit">is the tarneeb suit</param>
+        /// <returns></returns>
+        public static Card HighestCard(List<Card> listOfCards, Enums.Suit tarneebSuit)
         {
             List<Card> sortedCards = new List<Card>();
             Card returningCard = new Card();
 
-            foreach (var card in listofCards)
+            foreach (var card in listOfCards)
             {
                 if(card.Suit == tarneebSuit)
                 {
@@ -124,15 +137,15 @@ namespace CardDisplayTake3
 
             if (sortedCards.Count == 0)
             {
-                for (int i = 0; i < listofCards.Count - 1; i++)
+                for (int i = 0; i < listOfCards.Count - 1; i++)
                 {
-                    if (listofCards[i].CardNumber > listofCards[i + 1].CardNumber)
+                    if (listOfCards[i].CardNumber > listOfCards[i + 1].CardNumber)
                     {
-                        returningCard = listofCards[i];
+                        returningCard = listOfCards[i];
                     }
                     else
                     {
-                        returningCard = listofCards[i + 1];
+                        returningCard = listOfCards[i + 1];
                     }
                 }
             }
@@ -141,10 +154,16 @@ namespace CardDisplayTake3
             return returningCard;
         }
 
+        /// <summary>
+        /// This method will be called when the computer has to bid 
+        /// </summary>
+        /// <param name="player"> is the computer player</param>
+        /// <returns></returns>
         public static Bid ComputerBid(Player player)
         {
             int tricks = 0;
             char suit = (char)player.playersCards[0].Suit;
+            // Checking if suit of 4 th card matches with 5, if does then we will check furhter or else the bid will be 4
             if (player.playersCards[3].Suit == player.playersCards[4].Suit)
             {
                 if (player.playersCards[4].Suit == player.playersCards[5].Suit)
@@ -180,9 +199,6 @@ namespace CardDisplayTake3
             return bid;
         }
 
-        //public static Bid HumanBid()
-        //{
-
-        //}
+        
     }
 }

@@ -79,11 +79,7 @@
     <Compile Include="Instructions.xaml.cs">
       <DependentUpon>Instructions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MakeBidWindow.xaml.cs">
-      <DependentUpon>MakeBidWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Player.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Team.cs" />
     <Page Include="Instructions.xaml">
       <SubType>Designer</SubType>
@@ -107,16 +103,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MakeBidWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlayingCard.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

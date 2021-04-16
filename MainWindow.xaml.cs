@@ -26,6 +26,11 @@ namespace CardDisplayTake3
             InitializeComponent();
         }
 
+        /// <summary>
+        /// This will take us to the gaming window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bGetCards_Click(object sender, RoutedEventArgs e)
         {
 
@@ -38,12 +43,21 @@ namespace CardDisplayTake3
         }
 
        
-
+        /// <summary>
+        /// This will exit the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Bexit_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// This will open the instructions window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btninstructions_OnClick(object sender, RoutedEventArgs e)
         {
             Instructions instructionPage = new Instructions();
