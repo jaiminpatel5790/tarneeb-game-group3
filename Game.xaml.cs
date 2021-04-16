@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
+using System.Windows.Media.Animation;
 using Cards;
 using Tarneeb_Game_group3;
 using static CardDisplayTake3.GameLogic;
@@ -93,12 +95,22 @@ namespace CardDisplayTake3
         private static  List<Card> playerdeck2;
         private static List<Card> playerdeck3;
         private static  List<Card> playerdeck4;
+
+        private int player1tricks = 1;
+
+        private Bid Highestbidder = null;
+        Card newCard = new Card();
+        Enums.Suit player1suit = Enums.Suit.None;
+
+        private bool goPlayer = false;
+
         //List<Card> playerdeck2 = deck.Sort(deck.TakeCards(13));
         //List<Card> playerdeck3 = deck.Sort(deck.TakeCards(13));
         //List<Card> playerdeck4 = deck.Sort(deck.TakeCards(13));
 
         private void bGetCards_Click(object sender, RoutedEventArgs e)
         {
+            EnableCards();
             deck.Shuffle();
 
 
@@ -156,11 +168,12 @@ namespace CardDisplayTake3
 
 
             bGetCards.IsEnabled = false;
-            bidSelector.IsEnabled = true;
+            //bidSelector.IsEnabled = true;
             suitSelector.IsEnabled = true;
-            btnOkay.IsEnabled = true;
+            //btnOkay.IsEnabled = true;
 
-
+            MyPopup.IsOpen = true;
+           
         }
 
         #region GettingImagesEventHandlers
@@ -170,6 +183,53 @@ namespace CardDisplayTake3
 
             Image img = e.Source as Image;
             img.Source = (BitmapSource)e.Data.GetData(DataFormats.Text);
+            String str = img.Source.ToString();
+            String str1 = str.Substring(36); // Diamond12.png
+            String[] str2 = {".png"};
+            String[] str3 = str1.Split(str2, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string s in str3.ToArray())
+            {
+                Console.WriteLine(s);
+            }
+
+            int divider = 0;
+            if (str1[0] == 'D')
+            {
+                divider = 7;
+            }
+            if (str1[0] == 'C')
+            {
+                divider = 4;
+            }
+            if (str1[0] == 'H')
+            {
+                divider = 5;
+            }
+            if (str1[0] == 'S')
+            {
+                divider = 5;
+            }
+
+            String substr1 = str1.Substring(divider);
+            //Console.WriteLine(substr1);
+
+            String[] seperator = { "pack://application:,,,/images/cards/", ".png" };
+            String[] strList = str.Split(seperator, StringSplitOptions.RemoveEmptyEntries);
+
+            //Console.WriteLine(str1);
+            foreach (string s in strList.ToArray())
+            {
+                Console.WriteLine(s);
+            }
+
+
+            goPlayer = true;
+            //return player1Cards[0];
+            //Console.WriteLine(strList[0]);
+            //Console.WriteLine(strList[1]);
+
+            //pack://application:,,,/images/cards/Diamond12.png}
+            //Console.WriteLine(e.Data.GetData());
 
             // Helper.InsertEvent("Card Played");
         }
@@ -318,7 +378,11 @@ namespace CardDisplayTake3
         #endregion
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Btntomenu_OnClick(object sender, RoutedEventArgs e)
         {
             MainWindow back = new MainWindow();
@@ -334,22 +398,27 @@ namespace CardDisplayTake3
 
         private void BtnOKay_OnClick(object sender, RoutedEventArgs e)
         {
-            txtbiddingNumber.Text = bidSelector.Text;
-            btnOkay.IsEnabled = false;
-            bidSelector.IsEnabled = false;
+            MyPopup.IsOpen = false;
+            //txtbiddingNumber.Text = bidSelector.Text;
+            
+           // bidSelector.IsEnabled = false;
             txtbiddingNumber.IsEnabled = false;
-            suitSelector.IsEnabled = false;
+            suitSelector.IsEnabled = true;
+            player1tricks = Convert.ToInt32(pop1selector.Text);
+            txtbiddingNumber.Text = player1tricks.ToString();
 
             List<Player> playerList = new List<Player> {player2, player3, player4};
 
             //Console.WriteLine(player2.name);
             List<Bid> newBid = new List<Bid>();
             Bid bid = new Bid();
-            Bid Highestbidder;
+            
 
             newBid = bid.GoNext(playerList);
 
-          
+           
+
+
             txtplayer2bid.Text = newBid[0].Tricks.ToString();
             txtplayer3bid.Text = newBid[1].Tricks.ToString();
             txtplayer4bid.Text = newBid[2].Tricks.ToString();
@@ -357,42 +426,295 @@ namespace CardDisplayTake3
             txtplayer2bid.IsEnabled = false;
             txtplayer3bid.IsEnabled = false;
             txtplayer4bid.IsEnabled = false;
-            int ourbid = Convert.ToInt32(bidSelector.Text);
-            char oursuit = 'H';
-            if (suitSelector.Text == "Spades")
+
+            //int ourbid = Convert.ToInt32(bidSelector.Text);
+            //char oursuit = 'H';
+            //if (suitSelector.Text == "Spades")
+            //{
+            //    oursuit = 'S';
+            //}
+            //if (suitSelector.Text == "Heart")
+            //{
+            //    oursuit = 'H';
+            //}
+            //if (suitSelector.Text == "Club")
+            //{
+            //    oursuit = 'C';
+            //}
+            //if (suitSelector.Text == "Diamond")
+            //{
+            //    oursuit = 'D';
+            //}
+            //// char oursuit = Convert.ToChar(suitSelector.Text);
+
+            //Bid player1Bid = new Bid()
+            //{
+            //    IsPass = false,
+            //    Player = player1,
+            //    Tricks = ourbid,
+            //    Suit = oursuit
+
+            //};
+            
+
+           // newBid.Insert(0, player1Bid);
+
+           // Console.WriteLine(newBid[0]);
+
+            Highestbidder = bid.HigherBid(newBid);
+            
+            if (Highestbidder.Tricks > player1tricks)
             {
-                oursuit = 'S';
+                MyPopup.IsOpen = false;
+                newCard.setTrump((Enums.Suit)Highestbidder.Suit);
+                lblHighestBid.Content = "Tarneeb suit is " + newCard.Trump + " of " + Highestbidder.Player;
+
+                while (FirstTeam.score != 42 && SecondTeam.score != 42)
+                {
+                    List<Card> listOfCards = new List<Card>();
+
+                    Enums.Suit currentSuit = Enums.Suit.None;
+                    Enums.CardNumber currentCardNumber = 0;
+                    Player currentPlayer = null;
+
+                    Player startingPlayer = Highestbidder.Player;
+
+
+
+
+                    //Card player1Card = putCard(Highestbidder.Player, newCard.Trump, currentSuit, currentCardNumber);
+                    Card player1Card = null;
+                    Card player2Card = null;
+                    Card player3Card = null;
+                    Card player4Card = null;
+
+
+                    //currentSuit = player1Card.Suit;
+                    //currentCardNumber = player1Card.CardNumber;
+                    //currentPlayer = Highestbidder.Player;
+                    //If player 1 is the highest bidder, then the order of gameplay would be player1, player2, player3, player4
+                    //if (Highestbidder.Player == player1)
+                    //{
+                    //    //Player 1 plays card
+                    //    EnableCards();
+                       
+
+                    //    //player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                    //    //currentSuit = player1Card.Suit;
+                    //    //currentCardNumber = player1Card.CardNumber;
+                    //    //currentPlayer = player1;
+
+                    //    //imgPlayer1Played.Source = player1Card.cardImage;
+                    //    //foreach (var card in playerdeck)
+                    //    //{
+                    //    //    if (card == player1Card)
+                    //    //    {
+                    //    //        card1.Source = Helper.GetImage("/images/blankplayingcard.png");
+                    //    //    }
+                    //    //}
+
+
+
+                    //    //Player 2 plays card
+                    //    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                    //    currentSuit = player2Card.Suit;
+                    //    currentCardNumber = player2Card.CardNumber;
+                    //    currentPlayer = player2;
+
+                    //    imgPlayer2Played.Source = player2Card.cardImage;
+
+
+                    //    //Player 3 plays card
+                    //    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                    //    currentSuit = player3Card.Suit;
+                    //    currentCardNumber = player3Card.CardNumber;
+                    //    currentPlayer = player3;
+
+                    //    imgPlayer3Played.Source = player3Card.cardImage;
+
+                    //    //Player 4 plays card.
+                    //    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                    //    currentSuit = player4Card.Suit;
+                    //    currentCardNumber = player4Card.CardNumber;
+                    //    currentPlayer = player4;
+
+                    //    imgPlayer4Played.Source = player4Card.cardImage;
+                    //}
+                    if (Highestbidder.Player == player2)
+                    {
+                        //Player 2 plays card
+                        player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player2Card.Suit;
+                        currentCardNumber = player2Card.CardNumber;
+                        currentPlayer = player2;
+
+                        imgPlayer2Played.Source = player2Card.cardImage;
+
+                        //Player 3 plays card
+                        player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player3Card.Suit;
+                        currentCardNumber = player3Card.CardNumber;
+                        currentPlayer = player3;
+
+                        imgPlayer3Played.Source = player3Card.cardImage;
+
+                        //Player 4 plays card
+                        player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player4Card.Suit;
+                        currentCardNumber = player4Card.CardNumber;
+                        currentPlayer = player4;
+
+                        imgPlayer4Played.Source = player4Card.cardImage;
+
+                        //Player 1 plays card
+                        player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player1Card.Suit;
+                        currentCardNumber = player1Card.CardNumber;
+                        currentPlayer = player1;
+
+                        imgPlayer1Played.Source = player1Card.cardImage;
+                    }
+                    if (Highestbidder.Player == player3)
+                    {
+                        //Player 3 plays card
+                        player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player3Card.Suit;
+                        currentCardNumber = player3Card.CardNumber;
+                        currentPlayer = player3;
+
+                        imgPlayer3Played.Source = player3Card.cardImage;
+
+                        //Player 4 plays card
+                        player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player4Card.Suit;
+                        currentCardNumber = player4Card.CardNumber;
+                        currentPlayer = player4;
+
+                        imgPlayer4Played.Source = player4Card.cardImage;
+
+                        //Player 1 plays card
+                        player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player1Card.Suit;
+                        currentCardNumber = player1Card.CardNumber;
+                        currentPlayer = player1;
+
+                        imgPlayer1Played.Source = player1Card.cardImage;
+
+                        //Player 2 plays card
+                        player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player2Card.Suit;
+                        currentCardNumber = player2Card.CardNumber;
+                        currentPlayer = player2;
+
+                        imgPlayer2Played.Source = player2Card.cardImage;
+
+                    }
+                    if (Highestbidder.Player == player4)
+                    {
+                        //Player 4 plays card
+                        player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player4Card.Suit;
+                        currentCardNumber = player4Card.CardNumber;
+                        currentPlayer = player4;
+
+                        imgPlayer4Played.Source = player4Card.cardImage;
+
+                        //Player 1 plays card
+                        player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player1Card.Suit;
+                        currentCardNumber = player1Card.CardNumber;
+                        currentPlayer = player1;
+
+                        imgPlayer1Played.Source = player1Card.cardImage;
+
+                        //Player 2 plays card
+                        player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player2Card.Suit;
+                        currentCardNumber = player2Card.CardNumber;
+                        currentPlayer = player2;
+
+                        imgPlayer2Played.Source = player2Card.cardImage;
+
+                        //Player 3 plays card
+                        player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player3Card.Suit;
+                        currentCardNumber = player3Card.CardNumber;
+                        currentPlayer = player3;
+
+                        imgPlayer3Played.Source = player3Card.cardImage;
+
+
+                    }
+
+                    List<Card> roundCards = new List<Card>();
+                    roundCards.Add(player1Card);
+                    roundCards.Add(player2Card);
+                    roundCards.Add(player3Card);
+                    roundCards.Add(player4Card);
+
+                    Card WinningCard = HighestCard(roundCards, (Enums.Suit)Highestbidder.Suit);
+
+                    if (WinningCard == player1Card || WinningCard == player3Card)
+                    {
+                        lblroundwinners.Content += "Team 1 Wins\n";
+                        FirstTeam.score += 7;
+                    }
+                    else
+                    {
+                        lblroundwinners.Content += "Team 2 Wins\n";
+                        SecondTeam.score += 7;
+
+                    }
+
+                }
+
+                if (FirstTeam.score == 42)
+                {
+                    lblroundwinners.Content += "This game has been won by first team!";
+                }
+
+                if (SecondTeam.score == 42)
+                {
+                    lblroundwinners.Content += "This game has been won by second team!";
+                }
+
             }
-            if (suitSelector.Text == "Heart")
+            else
             {
-                oursuit = 'H';
+                MyPopup2.IsOpen = true;
+                btnGame.IsEnabled = true;
+                
+               
+                
+
+            }
+
+
+        }
+
+
+        private void BtnGame_OnClick(object sender, RoutedEventArgs e)
+        {
+            
+            MyPopup2.IsOpen = false;
+            if (suitSelector.Text == "Spade")
+            {
+                player1suit = Enums.Suit.Spade;
             }
             if (suitSelector.Text == "Club")
             {
-                oursuit = 'C';
+                player1suit = Enums.Suit.Club;
+            }
+            if (suitSelector.Text == "Heart")
+            {
+                player1suit = Enums.Suit.Heart;
             }
             if (suitSelector.Text == "Diamond")
             {
-                oursuit = 'D';
+                player1suit = Enums.Suit.Diamond;
             }
-            // char oursuit = Convert.ToChar(suitSelector.Text);
-
-            Bid player1Bid = new Bid()
-            {
-                IsPass = false,
-                Player = player1,
-                Tricks = ourbid,
-                Suit = oursuit
-
-            };
-
-            newBid.Insert(0, player1Bid);
-
-            Highestbidder = bid.HigherBid(newBid);
-
-            lblHighestBid.Content = Highestbidder.ToString();
-            Card newCard = new Card();
-            newCard.setTrump((Enums.Suit) Highestbidder.Suit);
+            newCard.setTrump(player1suit);
+            lblHighestBid.Content = "Tarneeb suit is " + player1suit + " of " + player1;
 
             while (FirstTeam.score != 42 && SecondTeam.score != 42)
             {
@@ -405,7 +727,7 @@ namespace CardDisplayTake3
                 Player startingPlayer = Highestbidder.Player;
 
 
-                
+
 
                 //Card player1Card = putCard(Highestbidder.Player, newCard.Trump, currentSuit, currentCardNumber);
                 Card player1Card = null;
@@ -418,157 +740,64 @@ namespace CardDisplayTake3
                 //currentCardNumber = player1Card.CardNumber;
                 //currentPlayer = Highestbidder.Player;
                 //If player 1 is the highest bidder, then the order of gameplay would be player1, player2, player3, player4
-                if (Highestbidder.Player == player1)
-                {
+                //if (Highestbidder.Player == player1)
+                //{
                     //Player 1 plays card
                     EnableCards();
+
+                //Task t = Task.Run(() => imgPlayer1Played_Drop(null, null));
+                //t.Wait();
+                
+               
+                player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
+                currentSuit = player1Card.Suit;
+                currentCardNumber = player1Card.CardNumber;
+                currentPlayer = player1;
+
+                imgPlayer1Played.Source = player1Card.cardImage;
+                //foreach (var card in playerdeck)
+                //{
+                //    if (card == player1Card)
+                //    {
+                //        card1.Source = Helper.GetImage("/images/blankplayingcard.png");
+                //    }
+                //}
+
+                //while (goPlayer) 
+                //{
+                //Player 2 plays card
+                //System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
+                //Console.WriteLine("[DONE]");
+
+                player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player2Card.Suit;
+                        currentCardNumber = player2Card.CardNumber;
+                        currentPlayer = player2;
+
+                        imgPlayer2Played.Source = player2Card.cardImage;
+
+
+                        //Player 3 plays card
+                        player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player3Card.Suit;
+                        currentCardNumber = player3Card.CardNumber;
+                        currentPlayer = player3;
+
+                        imgPlayer3Played.Source = player3Card.cardImage;
+
+                        //Player 4 plays card.
+                        player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
+                        currentSuit = player4Card.Suit;
+                        currentCardNumber = player4Card.CardNumber;
+                        currentPlayer = player4;
+
+                        imgPlayer4Played.Source = player4Card.cardImage;
+
+                        goPlayer = false;
+                    //}
+
                     
-                    player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player1Card.Suit;
-                    currentCardNumber = player1Card.CardNumber;
-                    currentPlayer = player1;
-
-                    imgPlayer1Played.Source = player1Card.cardImage;
-                    foreach (var card in playerdeck)
-                    {
-                        if (card == player1Card)
-                        {
-                            card1.Source = Helper.GetImage("/images/blankplayingcard.png");
-                        }
-                    }
-
-
-
-                    //Player 2 plays card
-                    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player2Card.Suit;
-                    currentCardNumber = player2Card.CardNumber;
-                    currentPlayer = player2;
-
-                    imgPlayer2Played.Source = player2Card.cardImage;
-                    
-
-                    //Player 3 plays card
-                    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player3Card.Suit;
-                    currentCardNumber = player3Card.CardNumber;
-                    currentPlayer = player3;
-
-                    imgPlayer3Played.Source = player3Card.cardImage;
-
-                    //Player 4 plays card.
-                    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player4Card.Suit;
-                    currentCardNumber = player4Card.CardNumber;
-                    currentPlayer = player4;
-
-                    imgPlayer4Played.Source = player4Card.cardImage;
-                }
-                if (Highestbidder.Player == player2)
-                {
-                    //Player 2 plays card
-                    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player2Card.Suit;
-                    currentCardNumber = player2Card.CardNumber;
-                    currentPlayer = player2;
-
-                    imgPlayer2Played.Source = player2Card.cardImage;
-
-                    //Player 3 plays card
-                    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player3Card.Suit;
-                    currentCardNumber = player3Card.CardNumber;
-                    currentPlayer = player3;
-
-                    imgPlayer3Played.Source = player3Card.cardImage;
-
-                    //Player 4 plays card
-                    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player4Card.Suit;
-                    currentCardNumber = player4Card.CardNumber;
-                    currentPlayer = player4;
-
-                    imgPlayer4Played.Source = player4Card.cardImage;
-
-                    //Player 1 plays card
-                    player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player1Card.Suit;
-                    currentCardNumber = player1Card.CardNumber;
-                    currentPlayer = player1;
-
-                    imgPlayer1Played.Source = player1Card.cardImage;
-                }
-                if (Highestbidder.Player == player3)
-                {
-                    //Player 3 plays card
-                    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player3Card.Suit;
-                    currentCardNumber = player3Card.CardNumber;
-                    currentPlayer = player3;
-
-                    imgPlayer3Played.Source = player3Card.cardImage;
-
-                    //Player 4 plays card
-                    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player4Card.Suit;
-                    currentCardNumber = player4Card.CardNumber;
-                    currentPlayer = player4;
-
-                    imgPlayer4Played.Source = player4Card.cardImage;
-
-                    //Player 1 plays card
-                    player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player1Card.Suit;
-                    currentCardNumber = player1Card.CardNumber;
-                    currentPlayer = player1;
-
-                    imgPlayer1Played.Source = player1Card.cardImage;
-
-                    //Player 2 plays card
-                    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player2Card.Suit;
-                    currentCardNumber = player2Card.CardNumber;
-                    currentPlayer = player2;
-
-                    imgPlayer2Played.Source = player2Card.cardImage;
-
-                }
-                if (Highestbidder.Player == player4)
-                {
-                    //Player 4 plays card
-                    player4Card = putCard(player4, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player4Card.Suit;
-                    currentCardNumber = player4Card.CardNumber;
-                    currentPlayer = player4;
-
-                    imgPlayer4Played.Source = player4Card.cardImage;
-
-                    //Player 1 plays card
-                    player1Card = putCard(player1, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player1Card.Suit;
-                    currentCardNumber = player1Card.CardNumber;
-                    currentPlayer = player1;
-
-                    imgPlayer1Played.Source = player1Card.cardImage;
-
-                    //Player 2 plays card
-                    player2Card = putCard(player2, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player2Card.Suit;
-                    currentCardNumber = player2Card.CardNumber;
-                    currentPlayer = player2;
-
-                    imgPlayer2Played.Source = player2Card.cardImage;
-
-                    //Player 3 plays card
-                    player3Card = putCard(player3, newCard.Trump, currentSuit, currentCardNumber);
-                    currentSuit = player3Card.Suit;
-                    currentCardNumber = player3Card.CardNumber;
-                    currentPlayer = player3;
-
-                    imgPlayer3Played.Source = player3Card.cardImage;
-
-
-                }
+               
 
                 List<Card> roundCards = new List<Card>();
                 roundCards.Add(player1Card);
@@ -592,7 +821,7 @@ namespace CardDisplayTake3
 
             }
 
-            if(FirstTeam.score == 42)
+            if (FirstTeam.score == 42)
             {
                 lblroundwinners.Content += "This game has been won by first team!";
             }
@@ -601,10 +830,6 @@ namespace CardDisplayTake3
             {
                 lblroundwinners.Content += "This game has been won by second team!";
             }
-
-
         }
-
-        
     }
 }

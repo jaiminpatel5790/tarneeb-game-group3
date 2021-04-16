@@ -10,13 +10,17 @@ namespace CardDisplayTake3
 {
     class GameLogic
     {
+        //public static Card HumanCard(Enums.Suit tarneebSuit)
+        //{
+
+        //}
         public static Card putCard(Player player, Enums.Suit tarneebTrump, Enums.Suit suit, Enums.CardNumber cardNumber)
         {
             Card gamingCard = new Card();
             gamingCard = null;
 
             List<int> lowerCards = new List<int>();
-
+            
 
             if ((cardNumber == 0) && (suit == Enums.Suit.None))
             {
@@ -118,10 +122,67 @@ namespace CardDisplayTake3
 
             }
 
+            if (sortedCards.Count == 0)
+            {
+                for (int i = 0; i < listofCards.Count - 1; i++)
+                {
+                    if (listofCards[i].CardNumber > listofCards[i + 1].CardNumber)
+                    {
+                        returningCard = listofCards[i];
+                    }
+                    else
+                    {
+                        returningCard = listofCards[i + 1];
+                    }
+                }
+            }
+
 
             return returningCard;
         }
 
-       
+        public static Bid ComputerBid(Player player)
+        {
+            int tricks = 0;
+            char suit = (char)player.playersCards[0].Suit;
+            if (player.playersCards[3].Suit == player.playersCards[4].Suit)
+            {
+                if (player.playersCards[4].Suit == player.playersCards[5].Suit)
+                {
+                    if (player.playersCards[5].Suit == player.playersCards[6].Suit)
+                    {
+                        tricks = player.playersCards[6].Suit == player.playersCards[8].Suit ? 8 : 7;
+                    }
+                    else
+                    {
+                        tricks = 6;
+                    }
+
+
+                }
+                else
+                {
+                    tricks = 5;
+                }
+
+            }
+            else
+            {
+                tricks = 4;
+            }
+            Bid bid = new Bid()
+            {
+                IsPass = false,
+                Player = player,
+                Tricks = tricks,
+                Suit = suit
+            };
+            return bid;
+        }
+
+        //public static Bid HumanBid()
+        //{
+
+        //}
     }
 }

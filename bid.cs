@@ -15,43 +15,23 @@ namespace Tarneeb_Game_group3
         public char Suit { get; set; }
         public Player Player { get; set; }
 
-        public static Bid CreateBid(Player player)
+        public static Bid CreateBid(Player randomPlayer)
         {
-            int tricks = 0;
-           char suit = (char) player.playersCards[0].Suit;
-            if (player.playersCards[3].Suit == player.playersCards[4].Suit)
-            {
-                if (player.playersCards[4].Suit == player.playersCards[5].Suit)
-                {
-                    if (player.playersCards[5].Suit == player.playersCards[6].Suit)
-                    {
-                        tricks = player.playersCards[6].Suit == player.playersCards[8].Suit ? 8 : 7;
-                    }
-                    else
-                    {
-                        tricks = 6;
-                    }
-                   
+            Bid bid1 = new Bid();
 
-                }
-                else
-                {
-                   tricks =  5;
-                }
+           
+            //Computer Bid
+            bid1 = randomPlayer.playersCards[0].Suit != randomPlayer.playersCards[1].Suit ? CreatePassBid(randomPlayer) : GameLogic.ComputerBid(randomPlayer);
 
-            }
-            else
-            {
-               tricks =  4;
-            }
-            Bid bid = new Bid()
-            {
-                IsPass = false,
-                Player = player,
-                Tricks = tricks,
-                Suit = suit 
-            };
-            return bid;
+            return bid1;
+            //Bid bid = new Bid()
+            //{
+            //    IsPass = false,
+            //    Player = player,
+            //    Tricks = tricks,
+            //    Suit = suit
+            //};
+            //return bid;
         }
 
         public static Bid CreatePassBid(Player player)
@@ -113,14 +93,14 @@ namespace Tarneeb_Game_group3
             return highest;
         }
 
-       public Bid FindBid(Player randomPlayer)
-       {
-           Bid bid1 = new Bid();
+       //public Bid FindBid(Player randomPlayer)
+       //{
+       //    Bid bid1 = new Bid();
            
-            bid1 = randomPlayer.playersCards[0].Suit != randomPlayer.playersCards[1].Suit ? CreatePassBid(randomPlayer) : CreateBid(randomPlayer);
+       //     bid1 = randomPlayer.playersCards[0].Suit != randomPlayer.playersCards[1].Suit ? CreatePassBid(randomPlayer) : CreateBid(randomPlayer);
 
-            return bid1;
-       }
+       //     return bid1;
+       //}
 
        static int OptionalSum(int player1_trick, int player2_trick, List<Card> listOfCards1, List<Card> listOfCards2)
        {
@@ -158,17 +138,19 @@ namespace Tarneeb_Game_group3
 
             if (SelectedIndex == 0)
             {
+                //player 1
+                
                 //player2
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player2Bid = FindBid(randomPlayer);
+                player2Bid = CreateBid(randomPlayer);
                 SelectedIndex = 1;
                 //player 3
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player3Bid = FindBid(randomPlayer);
+                player3Bid = CreateBid(randomPlayer);
                 SelectedIndex = 2;
                 //player4
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player4Bid = FindBid(randomPlayer);
+                player4Bid = CreateBid(randomPlayer);
                 SelectedIndex = 0;
 
                
@@ -178,15 +160,15 @@ namespace Tarneeb_Game_group3
             {
                 //player3
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player3Bid = FindBid(randomPlayer);
+                player3Bid = CreateBid(randomPlayer);
                 SelectedIndex = 2;
                 //player4
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player4Bid = FindBid(randomPlayer);
+                player4Bid = CreateBid(randomPlayer);
                 SelectedIndex = 0;
                 //player2
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player2Bid = FindBid(randomPlayer);
+                player2Bid = CreateBid(randomPlayer);
                 SelectedIndex = 0;
                
                
@@ -197,20 +179,17 @@ namespace Tarneeb_Game_group3
             {
                 //player4
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player4Bid = FindBid(randomPlayer);
+                player4Bid = CreateBid(randomPlayer);
                 SelectedIndex = 0;
                 //player2
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player2Bid = FindBid(randomPlayer);
+                player2Bid = CreateBid(randomPlayer);
                 SelectedIndex = 1;
                 //player3
                 randomPlayer = listOfPlayer[SelectedIndex];
-                player3Bid = FindBid(randomPlayer);
+                player3Bid = CreateBid(randomPlayer);
                 SelectedIndex = 3;
                
-               
-               
-
             }
 
           

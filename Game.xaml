@@ -60,28 +60,8 @@
 
         <Canvas>
 
-            <ComboBox Name="bidSelector" Height="30" Width="150"
-                      Canvas.Top="344" Canvas.Left="400"
-                      IsEnabled="False">
-                <ComboBoxItem Content="4"/>
-                <ComboBoxItem Content="5"/>
-                <ComboBoxItem Content="6"/>
-                <ComboBoxItem Content="7"/>
-                <ComboBoxItem Content="8"/>
-                <ComboBoxItem Content="9"/>
-                <ComboBoxItem Content="10"/>
-                <ComboBoxItem Content="11"/>
-
-            </ComboBox>
-            <ComboBox Name="suitSelector" Height="30" Width="150"
-                      Canvas.Top="344" Canvas.Left="212"
-                      IsEnabled="False" >
-                <ComboBoxItem Content="Spades"/>
-                <ComboBoxItem Content="Heart"/>
-                <ComboBoxItem Content="Club"/>
-                <ComboBoxItem Content="Diamond"/>
-
-            </ComboBox>
+           
+            
 
             <Label
                 Background="Aqua"
@@ -107,21 +87,103 @@
                 FontWeight="Bold"
                 FontSize="15"
                 ></Label>
-            <Button Background="White"
-                    Width="150"
-                    Height="50"  
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center"
-                    Canvas.Left="909"
-                    Canvas.Top="557" 
-                    FontSize="20"
-                    FontFamily="Times New Roman bold" 
-                    IsEnabled="False"
-                    Name="btnOkay"
-                    Click="BtnOKay_OnClick">
+           
+            <Popup Name="MyPopup2"
 
-                Okay
-            </Button>
+                   
+
+                   Placement="Center"
+
+                   HorizontalOffset="-100"
+
+                   VerticalOffset="-100"
+
+                   AllowsTransparency="False">
+
+                <Grid Height="203" Background="Azure" Width="222">
+
+                    <ComboBox Name="suitSelector" Height="30" Width="150"
+                              Canvas.Top="344" Canvas.Left="212"
+                              IsEnabled="True" >
+                        <ComboBoxItem Content="Spade"/>
+                        <ComboBoxItem Content="Heart"/>
+                        <ComboBoxItem Content="Club"/>
+                        <ComboBoxItem Content="Diamond"/>
+
+                    </ComboBox>
+
+                    
+                    <Button Background="White"
+                            Width="120"
+                            Height="30"  
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Canvas.Left="909"
+                            Canvas.Top="557" 
+                            FontSize="20"
+                            FontFamily="Times New Roman bold" 
+                            IsEnabled="True"
+                            Name="btnGame"
+                            Click="BtnGame_OnClick" Margin="60,136,42,37">
+
+                        Back to game
+                    </Button>
+                   
+                    
+
+                </Grid>
+
+            </Popup>
+
+            <Popup Name="MyPopup"
+
+                   
+
+                   Placement="Center"
+
+                   HorizontalOffset="-100"
+
+                   VerticalOffset="-100"
+
+                   AllowsTransparency="False">
+
+                <Grid Height="203" Background="Azure" Width="222">
+
+                    <ComboBox Name="pop1selector" Height="30" Width="150"
+                              Canvas.Top="344" Canvas.Left="400"
+                              IsEnabled="True" Margin="10,27,-8,79">
+                        <ComboBoxItem Content="4"/>
+                        <ComboBoxItem Content="5"/>
+                        <ComboBoxItem Content="6"/>
+                        <ComboBoxItem Content="7"/>
+                        <ComboBoxItem Content="8"/>
+                        <ComboBoxItem Content="9"/>
+                        <ComboBoxItem Content="10"/>
+                        <ComboBoxItem Content="11"/>
+
+                    </ComboBox>
+
+                    <Button Background="White"
+                            Width="120"
+                            Height="30"  
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Canvas.Left="909"
+                            Canvas.Top="557" 
+                            FontSize="20"
+                            FontFamily="Times New Roman bold" 
+                            IsEnabled="True"
+                            Name="btnOkay"
+                            Click="BtnOKay_OnClick" Margin="60,136,42,37">
+
+                        Okay
+                    </Button>
+
+
+
+                </Grid>
+
+            </Popup>
             <Button Background="silver" 
                     Width="150" 
                     Height="46"
