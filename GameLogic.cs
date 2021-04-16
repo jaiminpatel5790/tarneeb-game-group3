@@ -18,7 +18,7 @@ namespace CardDisplayTake3
         /// A function to put the card 
         /// </summary>
         /// <param name="player"> the player who will be putting the card</param>
-        /// <param name="tarneebTrump"> is the tareeb suit for that game</param>
+        /// <param name="tarneebTrump"> is the tarneeb suit for that game</param>
         /// <param name="suit"> is the suit that was put by previous player</param>
         /// <param name="cardNumber"> is the card number put by that player</param>
         /// <returns></returns>
@@ -171,7 +171,7 @@ namespace CardDisplayTake3
         {
             int tricks = 0;
             char suit = (char)player.playersCards[0].Suit;
-            // Checking if suit of 4 th card matches with 5, if does then we will check furhter or else the bid will be 4
+            // Checking if suit of 4 th card matches with 5, if does then we will check further or else the bid will be 4
             if (player.playersCards[3].Suit == player.playersCards[4].Suit)
             {
                 if (player.playersCards[4].Suit == player.playersCards[5].Suit)
