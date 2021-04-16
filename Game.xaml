@@ -12,7 +12,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Resources/Felt-Green.jpg"></ImageBrush>
         </Grid.Background>
-        
+
         <!--This canvas contains the image for dropping cards for each player-->
         <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
             <!--Player 1 image-->
@@ -66,6 +66,20 @@
 
         <!--Defining a canvas for the whole window-->
         <Canvas>
+            <Button
+                Name="btnNext"
+                HorizontalAlignment="Center"
+                FontWeight="Bold"
+                FontSize="20"
+                Background="Chocolate" 
+                Canvas.Left="343" 
+                Canvas.Top="380" 
+                Height="39" 
+                Width="124" Click="BtnNext_Click"
+                IsEnabled="False">
+
+                Next
+            </Button>
             <!--This label will show the highest bid by which player and the tarneeb suit-->
             <Label
                 Background="Aqua"
@@ -131,8 +145,8 @@
 
                         Back to game
                     </Button>
-                   
-                    
+
+
 
                 </Grid>
             </Popup>
@@ -153,7 +167,7 @@
                 <!--Grid for showing the combobox and button -->
                 <Grid Height="203" Background="Azure" Width="222">
                     <Label HorizontalAlignment="Center" FontSize="20" FontWeight="Black">Select your Tricks</Label>
-                <!--Combobox containing bid -->
+                    <!--Combobox containing bid -->
                     <ComboBox Name="pop1selector" Height="30" Width="150"
                               
                               IsEnabled="True" Margin="10,27,-8,79">
@@ -168,7 +182,7 @@
 
                     </ComboBox>
 
-                <!--Button to go check the highest tricks to the main window-->
+                    <!--Button to go check the highest tricks to the main window-->
                     <Button Background="White"
                             Width="120"
                             Height="30"  

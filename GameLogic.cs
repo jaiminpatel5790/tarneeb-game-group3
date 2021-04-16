@@ -104,6 +104,7 @@ namespace CardDisplayTake3
         /// <returns></returns>
         public static Card HighestCard(List<Card> listOfCards, Enums.Suit tarneebSuit)
         {
+            
             List<Card> sortedCards = new List<Card>();
             Card returningCard = new Card();
 
@@ -125,11 +126,18 @@ namespace CardDisplayTake3
                 {
                     if (sortedCards[i].CardNumber > sortedCards[i + 1].CardNumber)
                     {
-                        returningCard = sortedCards[i];
+                        if(returningCard.CardNumber < sortedCards[i].CardNumber)
+                        {
+                            returningCard = sortedCards[i];
+                        }
                     }
                     else
                     {
-                        returningCard = sortedCards[i + 1];
+                        if (returningCard.CardNumber < sortedCards[i+1].CardNumber)
+                        {
+                            returningCard = sortedCards[i + 1];
+                        }
+                       
                     }
                 }
 
